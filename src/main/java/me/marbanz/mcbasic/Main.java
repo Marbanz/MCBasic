@@ -49,6 +49,7 @@ public class Main extends JavaPlugin {
 		getCommand("home").setExecutor(new Home());
 		getCommand("sethome").setExecutor(new Sethome());
 		getCommand("tpwarp").setExecutor(new Tpwarp());
+		getCommand("spawnmob").setExecutor(new Spawnmob());
 		saveDefaultConfig();
 		(new Update(this, 85523)).getLatestVersion(version -> {
 	          if (getDescription().getVersion().equalsIgnoreCase(version)) {

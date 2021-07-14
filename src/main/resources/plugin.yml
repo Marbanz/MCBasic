@@ -2,6 +2,7 @@ name: MCBasic
 version: ${project.version}
 main: me.marbanz.mcbasic.Main
 authors: [ Marbanz ]
+api-version: 1.17
 description: A simple plugin for Minecraft
 website: https://www.spigotmc.org/resources/mcbasic.85523/
 commands:
@@ -89,3 +90,8 @@ commands:
     description: teleport a player to a warp
     aliases: tpwr
     permission: mcbasic.tpwarp
+
+  spawnmob:
+    description: spawn a mob to a player
+    aliases: sm
+    permission: mcbasic.spawnmob

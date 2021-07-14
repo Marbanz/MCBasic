@@ -1,5 +1,5 @@
 commands:
-  fly:
+fly:
     description: allow a player to fly
     aliases: []
     permission: mcbasic.fly
@@ -83,3 +83,8 @@ commands:
     description: teleport a player to a warp
     aliases: tpwr
     permission: mcbasic.tpwarp
+
+  spawnmob:
+    description: spawn a mob to a player
+    aliases: sm
+    permission: mcbasic.spawnmob
