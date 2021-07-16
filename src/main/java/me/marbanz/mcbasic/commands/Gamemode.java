@@ -25,27 +25,26 @@ public class Gamemode implements CommandExecutor{
 							p.sendMessage("§aGamemode set to §eCreative");
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Creative");
-						}
-						if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
+						} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 								|| args[0].equalsIgnoreCase("s")) {
 							p.setGameMode(GameMode.SURVIVAL);
 							p.sendMessage("§aGamemode set to §eSurvival");
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Survival");
-						}
-						if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
+						} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 								|| args[0].equalsIgnoreCase("a")) {
 							p.setGameMode(GameMode.ADVENTURE);
 							p.sendMessage("§aGamemode set to §eAdventure");
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Adventure");
-						}
-						if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
+						} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 								|| args[0].equalsIgnoreCase("sp")) {
 							p.setGameMode(GameMode.SPECTATOR);
 							p.sendMessage("§aGamemode set to §eSpectator");
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Spectator");
+						} else {
+							p.sendMessage("§fUse: /gamemode 0|1|2|3 [player name]");
 						}
 						return true;
 					}
@@ -60,30 +59,29 @@ public class Gamemode implements CommandExecutor{
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eCreative");
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Creative");
-							}
-							if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
+							} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 									|| args[0].equalsIgnoreCase("s")) {
 								target.setGameMode(GameMode.SURVIVAL);
 								target.sendMessage("§aGamemode set to §eSurvival");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSurvival");
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Survival");
-							}
-							if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
+							} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 									|| args[0].equalsIgnoreCase("a")) {
 								target.setGameMode(GameMode.ADVENTURE);
 								target.sendMessage("§aGamemode set to §eAdventure");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eAdventure");
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Adventure");
-							}
-							if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
+							} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 									|| args[0].equalsIgnoreCase("sp")) {
 								target.setGameMode(GameMode.SPECTATOR);
 								target.sendMessage("§aGamemode set to §eSpectator");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSpectator");
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Spectator");
+							} else {
+								p.sendMessage("§fUse: /gamemode 0|1|2|3 [player name]");
 							}
 							return true;
 						} else
@@ -107,30 +105,29 @@ public class Gamemode implements CommandExecutor{
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Creative");
 							System.out.println(
 									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Creative");
-						}
-						if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
+						} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 								|| args[0].equalsIgnoreCase("s")) {
 							target.setGameMode(GameMode.SURVIVAL);
 							target.sendMessage("§aGamemode set to §eSurvival");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Survival");
 							System.out.println(
 									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Survival");
-						}
-						if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
+						} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 								|| args[0].equalsIgnoreCase("a")) {
 							target.setGameMode(GameMode.ADVENTURE);
 							target.sendMessage("§aGamemode set to §eAdventure");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Adventure");
 							System.out.println(
 									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Adventure");
-						}
-						if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
+						} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 								|| args[0].equalsIgnoreCase("sp")) {
 							target.setGameMode(GameMode.SPECTATOR);
 							target.sendMessage("§aGamemode set to §eSpectator");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Spectator");
 							System.out.println(
 									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Spectator");
+						} else {
+							sender.sendMessage("Use: /gamemode 0|1|2|3 [player name]");
 						}
 						return true;
 					} else

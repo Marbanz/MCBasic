@@ -95,3 +95,8 @@ commands:
     description: spawn a mob to a player
     aliases: sm
     permission: mcbasic.spawnmob
+
+  setservername:
+    description: set the name of the server
+    aliases: ssn
+    permission: mcbasic.setservername

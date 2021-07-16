@@ -10,7 +10,7 @@ import java.io.File;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public final class Main extends JavaPlugin {
 
 	public static Main plugin;
 	public static File warpFile = new File("./plugins/MCBasic", "warp.yml");
@@ -50,7 +50,10 @@ public class Main extends JavaPlugin {
 		getCommand("sethome").setExecutor(new Sethome());
 		getCommand("tpwarp").setExecutor(new Tpwarp());
 		getCommand("spawnmob").setExecutor(new Spawnmob());
+		getCommand("setservername").setExecutor(new Setservername());
+
 		saveDefaultConfig();
+
 		(new Update(this, 85523)).getLatestVersion(version -> {
 	          if (getDescription().getVersion().equalsIgnoreCase(version)) {
 	            System.out.println("[MCBasic] Plugin is up to date");
