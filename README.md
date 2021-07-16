@@ -11,6 +11,9 @@ MCBasic is currently in beta and in the early stages of coding so expect to find
 You can find commands and permissions at this link:
 https://github.com/Marbanz/MCBasic/blob/main/COMMANDS.txt
 
+You can find the 1.16 version of this plugin at this link:
+https://github.com/Marbanz/MCBasic-1.16
+
 # Requirements
 
 MCBasic is designed to use modern permissions plugins.
