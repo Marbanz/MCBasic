@@ -2,7 +2,6 @@ package me.marbanz.mcbasic.utils;
 
 import me.marbanz.mcbasic.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 
 import java.io.IOException;
 import java.io.InputStream;

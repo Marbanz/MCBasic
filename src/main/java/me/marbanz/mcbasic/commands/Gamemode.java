@@ -16,7 +16,7 @@ public class Gamemode implements CommandExecutor{
 				Player p = (Player) sender;
 				if (sender.hasPermission("mcbasic.gamemode")) {
 					if (args.length == 0) {
-						p.sendMessage("§fUse: /gamemode 0|1|2|3 [player name]");
+						return false;
 					}
 					if (args.length == 1) {
 						if (args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative")
@@ -44,7 +44,7 @@ public class Gamemode implements CommandExecutor{
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Spectator");
 						} else {
-							p.sendMessage("§fUse: /gamemode 0|1|2|3 [player name]");
+							return false;
 						}
 						return true;
 					}
@@ -81,7 +81,7 @@ public class Gamemode implements CommandExecutor{
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Spectator");
 							} else {
-								p.sendMessage("§fUse: /gamemode 0|1|2|3 [player name]");
+								return false;
 							}
 							return true;
 						} else
@@ -127,14 +127,14 @@ public class Gamemode implements CommandExecutor{
 							System.out.println(
 									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Spectator");
 						} else {
-							sender.sendMessage("Use: /gamemode 0|1|2|3 [player name]");
+							return false;
 						}
 						return true;
 					} else
 						sender.sendMessage("Player not found");
 					return true;
 				} else {
-					sender.sendMessage("Use: /gamemode 0|1|2|3 <player>");
+					return false;
 				}
 			}
 		}

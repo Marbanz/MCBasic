@@ -3,6 +3,7 @@ package me.marbanz.mcbasic;
 import me.marbanz.mcbasic.commands.*;
 import me.marbanz.mcbasic.events.Join;
 import me.marbanz.mcbasic.events.Join2;
+import me.marbanz.mcbasic.events.Muted;
 import me.marbanz.mcbasic.events.Quit;
 import me.marbanz.mcbasic.utils.Update;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +20,8 @@ public final class Main extends JavaPlugin {
 	public static FileConfiguration spawnConfiguration = YamlConfiguration.loadConfiguration(spawnFile);
 	public static File homeFile = new File("./plugins/MCBasic", "home.yml");
 	public static FileConfiguration homeConfiguration = YamlConfiguration.loadConfiguration(homeFile);
+	public static File muteFile = new File("./plugins/MCBasic", "mute.yml");
+	public static FileConfiguration muteConfiguration = YamlConfiguration.loadConfiguration(muteFile);
 
 	public void onEnable() {
 		plugin = this;
@@ -32,11 +35,12 @@ public final class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new Join2(), this);
 		getServer().getPluginManager().registerEvents(new Join(), this);
 		getServer().getPluginManager().registerEvents(new Quit(), this);
+		getServer().getPluginManager().registerEvents(new Muted(), this);
 		getCommand("fly").setExecutor(new Fly());
 		getCommand("gamemode").setExecutor(new Gamemode());
 		getCommand("heal").setExecutor(new Heal());
 		getCommand("feed").setExecutor(new Feed());
-		getCommand("playertp").setExecutor(new Tp());
+		getCommand("tp").setExecutor(new Tp());
 		getCommand("tphere").setExecutor(new Tphere());
 		getCommand("spawn").setExecutor(new Spawn());
 		getCommand("setspawn").setExecutor(new Setspawn());
@@ -51,7 +55,12 @@ public final class Main extends JavaPlugin {
 		getCommand("tpwarp").setExecutor(new Tpwarp());
 		getCommand("spawnmob").setExecutor(new Spawnmob());
 		getCommand("setservername").setExecutor(new Setservername());
-
+		getCommand("tphome").setExecutor(new Tphome());
+		getCommand("tpspawn").setExecutor(new Tpspawn());
+		getCommand("repair").setExecutor(new Repair());
+		getCommand("mute").setExecutor(new Mute());
+		getCommand("unmute").setExecutor(new Unmute());
+		getCommand("enderchest").setExecutor(new Enderchest());
 		saveDefaultConfig();
 
 		(new Update(this, 85523)).getLatestVersion(version -> {

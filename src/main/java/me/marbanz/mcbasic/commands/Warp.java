@@ -4,6 +4,7 @@ import me.marbanz.mcbasic.utils.Warpmanager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class Warp implements CommandExecutor {
@@ -23,16 +24,19 @@ public class Warp implements CommandExecutor {
 						} else {
 							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist");
 						}
-					}
-
-					if (args.length == 0) {
-						sender.sendMessage("§fUse: /warp <name>");
+						return true;
+					} else {
+						return false;
 					}
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");
 					return true;
 				}
 
+			}
+			if (sender instanceof ConsoleCommandSender) {
+				sender.sendMessage("You can't do this command from the console!");
+				return true;
 			}
 
 		}

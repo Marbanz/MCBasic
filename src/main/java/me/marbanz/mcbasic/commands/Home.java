@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class Home implements CommandExecutor {
@@ -16,23 +17,29 @@ public class Home implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player p = (Player) sender;
 				if (sender.hasPermission("mcbasic.home")) {
-					if (Main.homeConfiguration.getConfigurationSection(p.getPlayer().getName()+".home") == null) {
+					if (Main.homeConfiguration.getConfigurationSection(p.getPlayer().getName() + ".home") == null) {
 						p.sendMessage("§cThe home has not yet been set");
 						return true;
-					}
-					World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(p.getPlayer().getName()+".home.world"));
-					double x = Main.homeConfiguration.getDouble(p.getPlayer().getName()+".home.x");
-					double y = Main.homeConfiguration.getDouble(p.getPlayer().getName()+".home.y");
-					double z = Main.homeConfiguration.getDouble(p.getPlayer().getName()+".home.z");
+					} else {
+						World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(p.getPlayer().getName() + ".home.world"));
+					double x = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.x");
+					double y = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.y");
+					double z = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.z");
 					if (args.length == 0) {
 						p.teleport(new Location(w, x, y, z));
 						p.sendMessage("§aTeleported to home!");
 						System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported to home");
+						return true;
 					}
+				}
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");
 					return true;
 				}
+			}
+			if (sender instanceof ConsoleCommandSender) {
+				sender.sendMessage("You can't do this command from the console!");
+				return true;
 			}
 		
 		}

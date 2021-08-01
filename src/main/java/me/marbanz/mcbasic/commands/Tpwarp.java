@@ -28,12 +28,13 @@ public class Tpwarp implements CommandExecutor {
                                 } else {
                                     sender.sendMessage("§aThe warp §e" + args[0] + "§a does not exist");
                                 }
+                                return true;
                             } else
                                 sender.sendMessage("§cPlayer not found");
 
                         return true;
                     } else  {
-                        sender.sendMessage("§fUse: /tpwarp <name> <player name>");
+                        return false;
                     }
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
@@ -55,12 +56,12 @@ public class Tpwarp implements CommandExecutor {
                         } else {
                             sender.sendMessage("The warp " + args[0] + " does not exist");
                         }
-
+                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
                 } else {
-                    sender.sendMessage("Use: /tpwarp <name> <player name>");
+                    return false;
                 }
             }
 

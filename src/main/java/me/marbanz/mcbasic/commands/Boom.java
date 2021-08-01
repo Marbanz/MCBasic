@@ -26,10 +26,11 @@ public class Boom implements CommandExecutor {
 							return true;
 						} else
 							sender.sendMessage("§cPlayer not found");
+						return true;
+					} else {
+						return false;
 					}
-					if (args.length == 0) {
-						sender.sendMessage("§fUse: /boom <player>");
-					}
+
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");
 					return true;
@@ -48,7 +49,7 @@ public class Boom implements CommandExecutor {
 						sender.sendMessage("Player not found");
 					return true;
 				} else {
-					sender.sendMessage("Use: /boom <player>");
+					return false;
 				}
 			}
 		}

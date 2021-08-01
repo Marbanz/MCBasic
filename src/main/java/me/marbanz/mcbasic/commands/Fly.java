@@ -78,7 +78,7 @@ public class Fly implements CommandExecutor{
 					return true;
 
 				} else {
-					sender.sendMessage("Use: /fly <player name>");
+					return false;
 				}
 			}
 		}

@@ -8,7 +8,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class Heal implements CommandExecutor{
-	
+
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
@@ -20,6 +20,7 @@ public class Heal implements CommandExecutor{
 						p.setHealth(p.getMaxHealth());
 						p.sendMessage("§aHealed");
 						System.out.println("[MCBasic] " + p.getPlayer().getName() + " has healed himself");
+						return true;
 					}
 					if (args.length == 1) {
 						Player target = Bukkit.getServer().getPlayerExact(args[0]);
@@ -53,7 +54,7 @@ public class Heal implements CommandExecutor{
 						sender.sendMessage("Player not found");
 					return true;
 				} else {
-					sender.sendMessage("Use: /heal <player>");
+					return false;
 				}
 			}
 		}

@@ -19,6 +19,7 @@ public class Feed implements CommandExecutor {
 						p.setFoodLevel(20);
 						p.sendMessage("§aFed");
 						System.out.println("[MCBasic] " + p.getPlayer().getName() + " has fed himself");
+						return true;
 					}
 					if (args.length == 1) {
 						Player target = Bukkit.getServer().getPlayerExact(args[0]);
@@ -53,7 +54,7 @@ public class Feed implements CommandExecutor {
 						sender.sendMessage("Player not found");
 					return true;
 				} else {
-					sender.sendMessage("Use: /feed <player>");
+					return false;
 				}
 			}
 		}

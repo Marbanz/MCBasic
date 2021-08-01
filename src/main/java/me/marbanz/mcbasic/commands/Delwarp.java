@@ -23,8 +23,9 @@ public class Delwarp implements CommandExecutor {
 						} else {
 							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist");
 						}
+						return true;
 					} else {
-						sender.sendMessage("§fUse: /delwarp <name>");
+						return false;
 					}
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");
@@ -41,8 +42,9 @@ public class Delwarp implements CommandExecutor {
 					} else {
 						sender.sendMessage("The warp " + args[0] + " does not exist");
 					}
+					return true;
 				} else {
-					sender.sendMessage("Use: /delwarp <name>");
+					return false;
 				}
 			}
 		}

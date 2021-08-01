@@ -18,11 +18,12 @@ public class Warplist implements CommandExecutor {
 					Warpmanager.shouldWarpList(p);
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");
-					return true;
 				}
+				return true;
 			}
 			if (sender instanceof ConsoleCommandSender) {
 				Warpmanager.shouldWarpListConsole(sender);
+				return true;
 			}
 		}
 		return false;
