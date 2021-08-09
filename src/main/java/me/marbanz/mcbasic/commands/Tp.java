@@ -8,6 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Tp implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -22,7 +24,7 @@ public class Tp implements CommandExecutor {
 						if (target != null) {
 							p.teleport(target);
 							p.sendMessage("§aYou teleported to §e" + target.getPlayer().getName() + "§a!");
-							System.out.println("[MCBasic] " + player.getPlayer().getName() + " teleported to "
+							plugin.getLogger().info(player.getPlayer().getName() + " teleported to "
 									+ target.getPlayer().getName());
 							return true;
 						} else
@@ -34,7 +36,7 @@ public class Tp implements CommandExecutor {
 						if (target != null && target2 != null) {
 							target.teleport(target2);
 							p.sendMessage("§aYou teleported §e"+ target.getPlayer().getName() +"§a to §e" + target2.getPlayer().getName() + "§a!");
-							System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to "
+							plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to "
 									+ target2.getPlayer().getName());
 							return true;
 						} else
@@ -47,7 +49,7 @@ public class Tp implements CommandExecutor {
 							double z = Double.parseDouble(args[2]);
 							p.teleport(new Location(p.getWorld(), x, y, z));
 							p.sendMessage("§aYou teleported to the written coordinates!");
-							System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported to X: " + x
+							plugin.getLogger().info(p.getPlayer().getName() + " teleported to X: " + x
 											+ " Y: " + y + " Z: " + z);
 						}catch (NumberFormatException e) {
 							sender.sendMessage("§cError in the coordinates or in the syntax of the command");
@@ -64,7 +66,7 @@ public class Tp implements CommandExecutor {
 								double z = Double.parseDouble(args[3]);
 								target.teleport(new Location(p.getWorld(), x, y, z));
 								p.sendMessage("§aYou teleported §e" + target.getPlayer().getName() + "§a to the written coordinates!");
-								System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "+ target.getPlayer().getName() +" to X: " + x
+								plugin.getLogger().info(p.getPlayer().getName() + " teleported "+ target.getPlayer().getName() +" to X: " + x
 										+ " Y: " + y + " Z: " + z);
 							}catch (NumberFormatException e) {
 								sender.sendMessage("§cError in the coordinates or in the syntax of the command");
@@ -91,7 +93,7 @@ public class Tp implements CommandExecutor {
 					if (target != null && target2 != null) {
 						target.teleport(target2);
 						sender.sendMessage("You teleported "+ target.getPlayer().getName() +" to " + target2.getPlayer().getName() + "!");
-						System.out.println("[MCBasic] Console teleported " + target.getPlayer().getName() + " to "
+						plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to "
 								+ target2.getPlayer().getName());
 						return true;
 					} else
@@ -106,7 +108,7 @@ public class Tp implements CommandExecutor {
 							double z = Double.parseDouble(args[3]);
 							target.teleport(new Location(target.getWorld(), x, y, z));
 							sender.sendMessage("You teleported " + target.getPlayer().getName() + " to the written coordinates!");
-							System.out.println("[MCBasic] Console teleported "+ target.getPlayer().getName() +" to X: " + x
+							plugin.getLogger().info("Console teleported "+ target.getPlayer().getName() +" to X: " + x
 									+ " Y: " + y + " Z: " + z);
 						}catch (NumberFormatException e) {
 							sender.sendMessage("Error in the coordinates or in the syntax of the command");

@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Fly implements CommandExecutor{
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -20,11 +22,11 @@ public class Fly implements CommandExecutor{
 						if (p.getAllowFlight()) {
 							p.setAllowFlight(false);
 							sender.sendMessage("§aFly disabled!");
-							System.out.println("[MCBasic] " + p.getPlayer().getName() + " has disabled fly");
+							plugin.getLogger().info(p.getPlayer().getName() + " has disabled fly");
 						} else {
 							p.setAllowFlight(true);
 							sender.sendMessage("§aFly enabled!");
-							System.out.println("[MCBasic] " + p.getPlayer().getName() + " has enabled fly");
+							plugin.getLogger().info(p.getPlayer().getName() + " has enabled fly");
 						}
 						return true;
 					} else if (args.length == 1) {
@@ -35,13 +37,13 @@ public class Fly implements CommandExecutor{
 								target.setAllowFlight(false);
 								target.sendMessage("§aFly disabled!");
 								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can't fly!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName()
+								plugin.getLogger().info(player.getPlayer().getName()
 										+ " has disabled fly for " + target.getPlayer().getName());
 							} else {
 								target.setAllowFlight(true);
 								target.sendMessage("§aFly enabled");
 								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can fly!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName() + " has enabled fly for "
+								plugin.getLogger().info(player.getPlayer().getName() + " has enabled fly for "
 										+ target.getPlayer().getName());
 							}
 						} else {
@@ -64,13 +66,12 @@ public class Fly implements CommandExecutor{
 							target.setAllowFlight(false);
 							target.sendMessage("§aFly disabled!");
 							sender.sendMessage("Now " + target.getPlayer().getName() + " can't fly!");
-							System.out
-									.println("[MCBasic] Console has disabled fly for " + target.getPlayer().getName());
+							plugin.getLogger().info("Console has disabled fly for " + target.getPlayer().getName());
 						} else {
 							target.setAllowFlight(true);
 							target.sendMessage("§aFly enabled!");
 							sender.sendMessage("Now " + target.getPlayer().getName() + " can fly!");
-							System.out.println("[MCBasic] Console has enabled fly for " + target.getPlayer().getName());
+							plugin.getLogger().info("Console has enabled fly for " + target.getPlayer().getName());
 						}
 					} else {
 						sender.sendMessage("Player not found");

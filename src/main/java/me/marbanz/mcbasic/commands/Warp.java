@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Warp implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -19,8 +21,7 @@ public class Warp implements CommandExecutor {
 						if (Warpmanager.exists(args[0])) {
 							p.teleport(Warpmanager.getWarp(args[0]));
 							p.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
-							System.out
-									.println("[MCBasic] " + p.getPlayer().getName() + " teleported to warp " + args[0]);
+							plugin.getLogger().info(p.getPlayer().getName() + " teleported to warp " + args[0]);
 						} else {
 							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist!");
 						}

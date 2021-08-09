@@ -11,6 +11,8 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Repair implements CommandExecutor {
 
     public boolean isRepairAble(Material material){
@@ -80,7 +82,7 @@ public class Repair implements CommandExecutor {
                             repairingItem.setDurability((short) 0);
                             p.setItemInHand(repairingItem);
                             p.sendMessage("§aRepaired the item§e successfully!");
-                            System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired his item");
+                            plugin.getLogger().info(p.getPlayer().getName()+ " repaired his item");
                         } else {
                             p.sendMessage("§cYou can't repair this item!");
                         }
@@ -92,7 +94,7 @@ public class Repair implements CommandExecutor {
                                 repairingItem.setDurability((short) 0);
                                 target.setItemInHand(repairingItem);
                                 sender.sendMessage("§aRepaired §e" +target.getPlayer().getName()+ "§a item§e successfully!");
-                                System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired "+target.getPlayer().getName()+" item");
+                                plugin.getLogger().info(p.getPlayer().getName()+ " repaired "+target.getPlayer().getName()+" item");
                             } else {
                                 sender.sendMessage("§cYou can't repair this item!");
                             }
@@ -119,7 +121,7 @@ public class Repair implements CommandExecutor {
                             repairingItem.setDurability((short) 0);
                             target.setItemInHand(repairingItem);
                             sender.sendMessage("Repaired "+target.getPlayer().getName()+" item successfully!");
-                            System.out.println("[MCBasic] Console repaired "+target.getPlayer().getName()+" item");
+                            plugin.getLogger().info("Console repaired "+target.getPlayer().getName()+" item");
                         }else{
                             sender.sendMessage("You can't repair this item!");
                         }

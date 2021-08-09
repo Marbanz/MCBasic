@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Delwarp implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -19,7 +21,7 @@ public class Delwarp implements CommandExecutor {
 						if (Warpmanager.exists(args[0])) {
 							Warpmanager.removeWarp(args[0]);
 							p.sendMessage("§aWarp deleted!");
-							System.out.println("[MCBasic] " + p.getPlayer().getName() + " deleted the warp " + args[0]);
+							plugin.getLogger().info(p.getPlayer().getName() + " deleted the warp " + args[0]);
 						} else {
 							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist!");
 						}
@@ -38,7 +40,7 @@ public class Delwarp implements CommandExecutor {
 					if (Warpmanager.exists(args[0])) {
 						Warpmanager.removeWarp(args[0]);
 						sender.sendMessage("Warp deleted!");
-						System.out.println("[MCBasic] Console deleted the warp " + args[0]);
+						plugin.getLogger().info("Console deleted the warp " + args[0]);
 					} else {
 						sender.sendMessage("The warp " + args[0] + " does not exist!");
 					}

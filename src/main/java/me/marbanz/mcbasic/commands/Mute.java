@@ -9,6 +9,8 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import java.io.IOException;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Mute implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (cmd.getName().equalsIgnoreCase("mute")) {
@@ -22,7 +24,7 @@ public class Mute implements CommandExecutor {
                                 p.sendMessage("§aThe player is already muted!");
                             } else {
                                 p.sendMessage("§aPlayer muted!");
-                                System.out.println("[MCBasic] " + p.getPlayer().getName() + " muted "+target.getPlayer().getName());
+                                plugin.getLogger().info(p.getPlayer().getName() + " muted "+target.getPlayer().getName());
                                 Main.muteConfiguration.set(target.getPlayer().getName(), true);
                                 try {
                                     Main.muteConfiguration.save(Main.muteFile);
@@ -51,7 +53,7 @@ public class Mute implements CommandExecutor {
                             sender.sendMessage("The player is already muted!");
                         } else {
                             sender.sendMessage("Player muted!");
-                            System.out.println("[MCBasic] Console muted "+target.getPlayer().getName());
+                            plugin.getLogger().info("Console muted "+target.getPlayer().getName());
                             Main.muteConfiguration.set(target.getPlayer().getName(), true);
                             try {
                                 Main.muteConfiguration.save(Main.muteFile);

@@ -5,6 +5,7 @@ import me.marbanz.mcbasic.events.*;
 import me.marbanz.mcbasic.utils.Update;
 import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
+
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,8 +24,8 @@ public final class Main extends JavaPlugin {
 	public void onEnable() {
 		plugin = this;
 
-		System.out.println("[MCBasic] Plugin is enabled");
-		System.out.println("[MCBasic] Plugin made by Marbanz");
+		plugin.getLogger().info("Plugin is enabled");
+		plugin.getLogger().info("Plugin made by Marbanz");
 
 		int pluginId = 11266;
 		me.marbanz.mcbasic.utils.Metrics metrics = new me.marbanz.mcbasic.utils.Metrics(this, pluginId);
@@ -63,16 +64,16 @@ public final class Main extends JavaPlugin {
 		if (Boolean.parseBoolean(Main.getInstance().getConfig().getString("settings.update_checker"))) {
 		new Update(this).getVersion(version -> {
 			if (Float.parseFloat(getDescription().getVersion()) >= Float.parseFloat(version)) {
-				System.out.println("[MCBasic] Plugin is up to date");
+				plugin.getLogger().info("Plugin is up to date");
 			} else {
-				System.out.println("[MCBasic] Plugin needs to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/ ");
+				plugin.getLogger().warning("Plugin needs to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/");
 			}
 			});
 	}
 	}
 
 	public void onDisable() {
-		System.out.println("[MCBasic] Plugin is disabled");
+		plugin.getLogger().info("Plugin is disabled");
 	}
 
 	public static Main getInstance() {

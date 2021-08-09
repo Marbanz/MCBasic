@@ -9,6 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Sethome implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -26,8 +28,7 @@ public class Sethome implements CommandExecutor {
 						e.printStackTrace();
 					}
 					p.sendMessage("§aHome set!");
-					System.out.println(
-							"[MCBasic] " + p.getPlayer().getName() + " set home to X: " + p.getLocation().getX()
+					plugin.getLogger().info(p.getPlayer().getName() + " set home to X: " + p.getLocation().getX()
 									+ " Y: " + p.getLocation().getY() + " Z: " + p.getLocation().getZ());
 				} else {
 					sender.sendMessage("§cYou don't have permissions to execute this command");

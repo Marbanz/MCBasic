@@ -8,6 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Gamemode implements CommandExecutor{
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -23,26 +25,22 @@ public class Gamemode implements CommandExecutor{
 								|| args[0].equalsIgnoreCase("c")) {
 							p.setGameMode(GameMode.CREATIVE);
 							p.sendMessage("§aGamemode set to §eCreative§a!");
-							System.out
-									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Creative");
+							plugin.getLogger().info(p.getPlayer().getName() + " set his gamemode to Creative");
 						} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 								|| args[0].equalsIgnoreCase("s")) {
 							p.setGameMode(GameMode.SURVIVAL);
 							p.sendMessage("§aGamemode set to §eSurvival§a!");
-							System.out
-									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Survival");
+							plugin.getLogger().info(p.getPlayer().getName() + " set his gamemode to Survival");
 						} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 								|| args[0].equalsIgnoreCase("a")) {
 							p.setGameMode(GameMode.ADVENTURE);
 							p.sendMessage("§aGamemode set to §eAdventure§a!");
-							System.out
-									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Adventure");
+							plugin.getLogger().info(p.getPlayer().getName() + " set his gamemode to Adventure");
 						} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 								|| args[0].equalsIgnoreCase("sp")) {
 							p.setGameMode(GameMode.SPECTATOR);
 							p.sendMessage("§aGamemode set to §eSpectator§a!");
-							System.out
-									.println("[MCBasic] " + p.getPlayer().getName() + " set his gamemode to Spectator");
+							plugin.getLogger().info(p.getPlayer().getName() + " set his gamemode to Spectator");
 						} else {
 							return false;
 						}
@@ -57,28 +55,28 @@ public class Gamemode implements CommandExecutor{
 								target.setGameMode(GameMode.CREATIVE);
 								target.sendMessage("§aGamemode set to §eCreative§a!");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eCreative§a!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
+								plugin.getLogger().info(player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Creative");
 							} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 									|| args[0].equalsIgnoreCase("s")) {
 								target.setGameMode(GameMode.SURVIVAL);
 								target.sendMessage("§aGamemode set to §eSurvival§a!");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSurvival§a!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
+								plugin.getLogger().info(player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Survival");
 							} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 									|| args[0].equalsIgnoreCase("a")) {
 								target.setGameMode(GameMode.ADVENTURE);
 								target.sendMessage("§aGamemode set to §eAdventure§a!");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eAdventure§a!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
+								plugin.getLogger().info(player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Adventure");
 							} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 									|| args[0].equalsIgnoreCase("sp")) {
 								target.setGameMode(GameMode.SPECTATOR);
 								target.sendMessage("§aGamemode set to §eSpectator§a!");
 								sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSpectator§a!");
-								System.out.println("[MCBasic] " + player.getPlayer().getName() + " set "
+								plugin.getLogger().info( player.getPlayer().getName() + " set "
 										+ target.getPlayer().getName() + " gamemode to Spectator");
 							} else {
 								return false;
@@ -103,29 +101,25 @@ public class Gamemode implements CommandExecutor{
 							target.setGameMode(GameMode.CREATIVE);
 							target.sendMessage("§aGamemode set to §eCreative§a!");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Creative!");
-							System.out.println(
-									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Creative");
+							plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Creative");
 						} else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
 								|| args[0].equalsIgnoreCase("s")) {
 							target.setGameMode(GameMode.SURVIVAL);
 							target.sendMessage("§aGamemode set to §eSurvival§a!");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Survival!");
-							System.out.println(
-									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Survival");
+							plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Survival");
 						} else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
 								|| args[0].equalsIgnoreCase("a")) {
 							target.setGameMode(GameMode.ADVENTURE);
 							target.sendMessage("§aGamemode set to §eAdventure§a!");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Adventure!");
-							System.out.println(
-									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Adventure");
+							plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Adventure");
 						} else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
 								|| args[0].equalsIgnoreCase("sp")) {
 							target.setGameMode(GameMode.SPECTATOR);
 							target.sendMessage("§aGamemode set to §eSpectator§a!");
 							sender.sendMessage("You put " + target.getPlayer().getName() + " in Spectator!");
-							System.out.println(
-									"[MCBasic] Console set " + target.getPlayer().getName() + " gamemode to Spectator");
+							plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Spectator");
 						} else {
 							return false;
 						}

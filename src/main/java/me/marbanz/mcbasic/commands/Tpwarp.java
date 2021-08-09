@@ -8,6 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Tpwarp implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (cmd.getName().equalsIgnoreCase("tpwarp")) {
@@ -23,8 +25,7 @@ public class Tpwarp implements CommandExecutor {
                                     target.sendMessage("§aTeleported to warp §e" + args[0]+ "§a!");
                                     sender.sendMessage(
                                             "§aTeleported §e" + target.getPlayer().getName() + "§a to warp §e" + args[0]+ "§a!");
-                                    System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "
-                                            + target.getPlayer().getName() + " to warp " + args[0]);
+                                    plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to warp " + args[0]);
                                 } else {
                                     sender.sendMessage("§aThe warp §e" + args[0] + "§a does not exist!");
                                 }
@@ -51,7 +52,7 @@ public class Tpwarp implements CommandExecutor {
                             target.teleport(Warpmanager.getWarp(args[0]));
                             target.sendMessage("§aTeleported to warp §e" + args[0]+ "§a!");
                             sender.sendMessage("Teleported " + target.getPlayer().getName() + " to warp " + args[0] + "!");
-                            System.out.println("[MCBasic] Console teleported " + target.getPlayer().getName()
+                            plugin.getLogger().info("Console teleported " + target.getPlayer().getName()
                                     + " to warp " + args[0]);
                         } else {
                             sender.sendMessage("The warp " + args[0] + " does not exist!");

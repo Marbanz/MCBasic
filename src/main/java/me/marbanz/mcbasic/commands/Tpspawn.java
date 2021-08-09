@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Tpspawn implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -31,8 +33,7 @@ public class Tpspawn implements CommandExecutor {
                                 target.teleport(new Location(w, x, y, z));
                                 target.sendMessage("§aTeleported to spawn!");
                                 sender.sendMessage("§aTeleported §e" + target.getPlayer().getName() + "§a to spawn!");
-                                System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "
-                                        + target.getPlayer().getName() + " to spawn");
+                                plugin.getLogger().info( p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to spawn");
                             } else {
                                 sender.sendMessage("§cPlayer not found");
                             }
@@ -57,8 +58,7 @@ public class Tpspawn implements CommandExecutor {
                         target.teleport(new Location(w, x, y, z));
                         target.sendMessage("§aTeleported to spawn!");
                         sender.sendMessage("Teleported " + target.getPlayer().getName() + " to spawn!");
-                        System.out
-                                .println("[MCBasic] Console teleported " + target.getPlayer().getName() + " to spawn");
+                        plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to spawn");
                     } else {
                         sender.sendMessage("Player not found");
                     }

@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Heal implements CommandExecutor{
 
 	@SuppressWarnings("deprecation")
@@ -19,7 +21,7 @@ public class Heal implements CommandExecutor{
 					if (args.length == 0) {
 						p.setHealth(p.getMaxHealth());
 						p.sendMessage("§aHealed!");
-						System.out.println("[MCBasic] " + p.getPlayer().getName() + " has healed himself");
+						plugin.getLogger().info(p.getPlayer().getName() + " has healed himself");
 						return true;
 					}
 					if (args.length == 1) {
@@ -29,7 +31,7 @@ public class Heal implements CommandExecutor{
 							target.setHealth(target.getMaxHealth());
 							target.sendMessage("§aYou have been healed!");
 							sender.sendMessage("§aYou healed §e" + target.getPlayer().getName() + "§a!");
-							System.out.println("[MCBasic] " + player.getPlayer().getName() + " healed "
+							plugin.getLogger().info(player.getPlayer().getName() + " healed "
 									+ target.getPlayer().getName());
 							return true;
 						} else
@@ -48,7 +50,7 @@ public class Heal implements CommandExecutor{
 						target.setHealth(target.getMaxHealth());
 						target.sendMessage("§aYou have been healed!");
 						sender.sendMessage("You healed " + target.getPlayer().getName() + "!");
-						System.out.println("[MCBasic] Console healed " + target.getPlayer().getName());
+						plugin.getLogger().info("Console healed " + target.getPlayer().getName());
 						return true;
 					} else
 						sender.sendMessage("Player not found");

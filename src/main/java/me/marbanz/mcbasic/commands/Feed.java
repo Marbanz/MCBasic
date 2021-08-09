@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Feed implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -18,7 +20,7 @@ public class Feed implements CommandExecutor {
 					if (args.length == 0) {
 						p.setFoodLevel(20);
 						p.sendMessage("§aFed!");
-						System.out.println("[MCBasic] " + p.getPlayer().getName() + " has fed himself");
+						plugin.getLogger().info(p.getPlayer().getName() + " has fed himself");
 						return true;
 					}
 					if (args.length == 1) {
@@ -28,7 +30,7 @@ public class Feed implements CommandExecutor {
 							target.setFoodLevel(20);
 							target.sendMessage("§aYou have been fed!");
 							sender.sendMessage("§aYou fed §e" + target.getPlayer().getName() + "§a!");
-							System.out.println("[MCBasic] " + player.getPlayer().getName() + " fed "
+							plugin.getLogger().info(player.getPlayer().getName() + " fed "
 									+ target.getPlayer().getName());
 							return true;
 						} else
@@ -48,7 +50,7 @@ public class Feed implements CommandExecutor {
 						target.setFoodLevel(20);
 						target.sendMessage("§aYou have been fed!");
 						sender.sendMessage("You fed " + target.getPlayer().getName() + " !");
-						System.out.println("[MCBasic] Console fed " + target.getPlayer().getName());
+						plugin.getLogger().info("Console fed " + target.getPlayer().getName());
 						return true;
 					} else
 						sender.sendMessage("Player not found");

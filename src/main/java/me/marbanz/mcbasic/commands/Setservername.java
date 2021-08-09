@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 
 public class Setservername implements CommandExecutor {
 
@@ -20,7 +22,7 @@ public class Setservername implements CommandExecutor {
                         Main.getInstance().getConfig().set("settings.server_name", str);
                         Main.getInstance().saveConfig();
                         p.sendMessage("§aName set!");
-                        System.out.println("[MCBasic] " + p.getPlayer().getName() + " set the name of the server to " + str);
+                        plugin.getLogger().info(p.getPlayer().getName() + " set the name of the server to " + str);
                         return true;
                     } else {
                         return false;
@@ -36,7 +38,7 @@ public class Setservername implements CommandExecutor {
                     Main.getInstance().getConfig().set("settings.server_name", str);
                     Main.getInstance().saveConfig();
                     sender.sendMessage("Name set!");
-                    System.out.println("[MCBasic] Console set the name of the server to " + str);
+                    plugin.getLogger().info("Console set the name of the server to " + str);
                         return true;
 
                 } else {

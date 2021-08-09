@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 
 import java.io.IOException;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Unmute implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (cmd.getName().equalsIgnoreCase("unmute")) {
@@ -21,7 +23,7 @@ public class Unmute implements CommandExecutor {
                         if (target != null) {
                             if (Main.muteConfiguration.getBoolean(target.getPlayer().getName())) {
                                 p.sendMessage("§aThe player is now unmuted!");
-                                System.out.println("[MCBasic] " + p.getPlayer().getName() + " unmuted "+target.getPlayer().getName());
+                                plugin.getLogger().info(p.getPlayer().getName() + " unmuted "+target.getPlayer().getName());
                                 Main.muteConfiguration.set(target.getPlayer().getName(), null);
                                 try {
                                     Main.muteConfiguration.save(Main.muteFile);
@@ -50,7 +52,7 @@ public class Unmute implements CommandExecutor {
                     if (target != null) {
                         if (Main.muteConfiguration.getBoolean(target.getPlayer().getName())) {
                             sender.sendMessage("The player is now unmuted!");
-                            System.out.println("[MCBasic] Console unmuted "+target.getPlayer().getName());
+                            plugin.getLogger().info("Console unmuted "+target.getPlayer().getName());
                             Main.muteConfiguration.set(target.getPlayer().getName(), null);
                             try {
                                 Main.muteConfiguration.save(Main.muteFile);

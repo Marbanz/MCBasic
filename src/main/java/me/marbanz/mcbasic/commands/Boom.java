@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Boom implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -20,7 +22,7 @@ public class Boom implements CommandExecutor {
 						if (target != null) {
 							player.sendMessage("§a/Boomed §e" + target.getPlayer().getName()+ "§a!");
 							target.sendMessage("§aBoom!");
-							System.out.println("[MCBasic] " + player.getPlayer().getName() + " /Boomed "
+							plugin.getLogger().info(player.getPlayer().getName() + " /Boomed "
 									+ target.getPlayer().getName());
 							target.getWorld().createExplosion(target.getLocation(), 1, false, false);
 							return true;
@@ -42,7 +44,7 @@ public class Boom implements CommandExecutor {
 					if (target != null) {
 						sender.sendMessage("/Boomed " + target.getPlayer().getName() + "!");
 						target.sendMessage("§aBoom!");
-						System.out.println("[MCBasic] Console /Boomed " + target.getPlayer().getName());
+						plugin.getLogger().info("Console /Boomed " + target.getPlayer().getName());
 						target.getWorld().createExplosion(target.getLocation(), 1, false, false);
 						return true;
 					} else

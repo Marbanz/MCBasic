@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Spawn implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -28,7 +30,7 @@ public class Spawn implements CommandExecutor {
 					if (args.length == 0) {
 						p.teleport(new Location(w, x, y, z));
 						p.sendMessage("§aTeleported to spawn!");
-						System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported to spawn");
+						plugin.getLogger().info(p.getPlayer().getName() + " teleported to spawn");
 						return true;
 					} else {
 						return false;

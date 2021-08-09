@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Tphome implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -29,7 +31,7 @@ public class Tphome implements CommandExecutor {
                                 double z = Main.homeConfiguration.getDouble(target.getPlayer().getName() + ".home.z");
                                 target.teleport(new Location(w, x, y, z));
                                 p.sendMessage("§aTeleported §e" +target.getPlayer().getName()+"§a to his home!");
-                                System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "+target.getPlayer().getName()+" to his home");
+                                plugin.getLogger().info(p.getPlayer().getName() + " teleported "+target.getPlayer().getName()+" to his home");
                                 return true;
                             }
                         } else {
@@ -58,7 +60,7 @@ public class Tphome implements CommandExecutor {
                             double z = Main.homeConfiguration.getDouble(target.getPlayer().getName() + ".home.z");
                             target.teleport(new Location(w, x, y, z));
                             sender.sendMessage("Teleported " +target.getPlayer().getName()+" to his home!");
-                            System.out.println("[MCBasic] Console teleported "+target.getPlayer().getName()+" to his home");
+                            plugin.getLogger().info("Console teleported "+target.getPlayer().getName()+" to his home");
                             return true;
 
                         }

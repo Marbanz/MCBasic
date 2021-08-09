@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import static me.marbanz.mcbasic.Main.plugin;
+
 public class Tphere implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -21,7 +23,7 @@ public class Tphere implements CommandExecutor {
 						if (target != null) {
 							target.teleport(p.getLocation());
 							p.sendMessage("§aYou teleported here §e" + target.getPlayer().getName() + "§a!");
-							System.out.println("[MCBasic] " + player.getPlayer().getName() + " teleported here "
+							plugin.getLogger().info(player.getPlayer().getName() + " teleported here "
 									+ target.getPlayer().getName());
 							return true;
 						} else
