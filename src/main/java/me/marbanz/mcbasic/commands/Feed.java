@@ -17,7 +17,7 @@ public class Feed implements CommandExecutor {
 				if (sender.hasPermission("mcbasic.feed")) {
 					if (args.length == 0) {
 						p.setFoodLevel(20);
-						p.sendMessage("§aFed");
+						p.sendMessage("§aFed!");
 						System.out.println("[MCBasic] " + p.getPlayer().getName() + " has fed himself");
 						return true;
 					}
@@ -26,8 +26,8 @@ public class Feed implements CommandExecutor {
 						Player player = (Player) sender;
 						if (target != null) {
 							target.setFoodLevel(20);
-							target.sendMessage("§aYou have been fed");
-							sender.sendMessage("§aYou fed §e" + target.getPlayer().getName());
+							target.sendMessage("§aYou have been fed!");
+							sender.sendMessage("§aYou fed §e" + target.getPlayer().getName() + "§a!");
 							System.out.println("[MCBasic] " + player.getPlayer().getName() + " fed "
 									+ target.getPlayer().getName());
 							return true;
@@ -46,8 +46,8 @@ public class Feed implements CommandExecutor {
 					Player target = Bukkit.getServer().getPlayerExact(args[0]);
 					if (target != null) {
 						target.setFoodLevel(20);
-						target.sendMessage("§aYou have been fed");
-						sender.sendMessage("You fed " + target.getPlayer().getName() + "");
+						target.sendMessage("§aYou have been fed!");
+						sender.sendMessage("You fed " + target.getPlayer().getName() + " !");
 						System.out.println("[MCBasic] Console fed " + target.getPlayer().getName());
 						return true;
 					} else

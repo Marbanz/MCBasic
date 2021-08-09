@@ -18,7 +18,7 @@ public class Boom implements CommandExecutor {
 						Player target = Bukkit.getServer().getPlayerExact(args[0]);
 						Player player = (Player) sender;
 						if (target != null) {
-							player.sendMessage("§a/Boomed §e" + target.getPlayer().getName());
+							player.sendMessage("§a/Boomed §e" + target.getPlayer().getName()+ "§a!");
 							target.sendMessage("§aBoom!");
 							System.out.println("[MCBasic] " + player.getPlayer().getName() + " /Boomed "
 									+ target.getPlayer().getName());
@@ -40,7 +40,7 @@ public class Boom implements CommandExecutor {
 				if (args.length == 1) {
 					Player target = Bukkit.getServer().getPlayerExact(args[0]);
 					if (target != null) {
-						sender.sendMessage("/Boomed " + target.getPlayer().getName());
+						sender.sendMessage("/Boomed " + target.getPlayer().getName() + "!");
 						target.sendMessage("§aBoom!");
 						System.out.println("[MCBasic] Console /Boomed " + target.getPlayer().getName());
 						target.getWorld().createExplosion(target.getLocation(), 1, false, false);

@@ -1,6 +1,7 @@
 me\marbanz\mcbasic\commands\Tp.class
 me\marbanz\mcbasic\commands\Setservername.class
 me\marbanz\mcbasic\utils\Metrics$DrilldownPie.class
+me\marbanz\mcbasic\events\Motd.class
 me\marbanz\mcbasic\commands\Unmute.class
 me\marbanz\mcbasic\commands\Sethome.class
 me\marbanz\mcbasic\commands\Tphome.class
@@ -9,6 +10,7 @@ me\marbanz\mcbasic\utils\Metrics$CustomChart.class
 me\marbanz\mcbasic\utils\Metrics$MultiLineChart.class
 me\marbanz\mcbasic\utils\Update.class
 me\marbanz\mcbasic\utils\Metrics$MetricsBase.class
+me\marbanz\mcbasic\events\CheckUpdate.class
 me\marbanz\mcbasic\commands\Boom.class
 me\marbanz\mcbasic\commands\Spawnmob.class
 me\marbanz\mcbasic\commands\Ping.class
@@ -21,7 +23,6 @@ me\marbanz\mcbasic\events\Join.class
 me\marbanz\mcbasic\commands\Fly.class
 me\marbanz\mcbasic\events\Muted.class
 me\marbanz\mcbasic\Main.class
-me\marbanz\mcbasic\events\Join2.class
 me\marbanz\mcbasic\utils\Metrics$SimplePie.class
 me\marbanz\mcbasic\utils\Metrics.class
 me\marbanz\mcbasic\utils\Metrics$SingleLineChart.class

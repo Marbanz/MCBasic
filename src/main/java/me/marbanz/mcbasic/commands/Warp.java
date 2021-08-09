@@ -18,11 +18,11 @@ public class Warp implements CommandExecutor {
 					if (args.length == 1) {
 						if (Warpmanager.exists(args[0])) {
 							p.teleport(Warpmanager.getWarp(args[0]));
-							p.sendMessage("§aTeleported to warp §e" + args[0]);
+							p.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
 							System.out
 									.println("[MCBasic] " + p.getPlayer().getName() + " teleported to warp " + args[0]);
 						} else {
-							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist");
+							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist!");
 						}
 						return true;
 					} else {

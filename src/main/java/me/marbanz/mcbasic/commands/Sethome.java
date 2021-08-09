@@ -25,7 +25,7 @@ public class Sethome implements CommandExecutor {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-					p.sendMessage("§aHome set");
+					p.sendMessage("§aHome set!");
 					System.out.println(
 							"[MCBasic] " + p.getPlayer().getName() + " set home to X: " + p.getLocation().getX()
 									+ " Y: " + p.getLocation().getY() + " Z: " + p.getLocation().getZ());

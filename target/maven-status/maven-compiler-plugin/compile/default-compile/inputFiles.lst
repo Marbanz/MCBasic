@@ -1,9 +1,11 @@
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Fly.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Repair.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Unmute.java
+C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\events\Motd.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Setwarp.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Tp.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Warplist.java
+C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\events\CheckUpdate.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\utils\Warpmanager.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Delwarp.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\Main.java
@@ -23,7 +25,6 @@ C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Home.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Tphome.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Warp.java
-C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\events\Join2.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Mute.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Tphere.java
 C:\Users\marti\Desktop\Java Plugin\Minecraft\IntelliJ IDEA\MCBasic\src\main\java\me\marbanz\mcbasic\commands\Setservername.java

@@ -1,36 +1,30 @@
 package me.marbanz.mcbasic.utils;
-
-import me.marbanz.mcbasic.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.Consumer;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
-import java.util.function.Consumer;
 
 public class Update {
 
-    private Main plugin;
-    private int resourceId;
+    private JavaPlugin plugin;
 
-    public Update(Main plugin, int resourceId) {
-        this.plugin  = plugin;
-        this.resourceId = resourceId;
+    public Update(JavaPlugin plugin) {
+        this.plugin = plugin;
     }
 
-    public void getLatestVersion(Consumer<String> consumer) {
-    	if (Boolean.parseBoolean(Main.getInstance().getConfig().getString("settings.update_checker"))) {
-    	Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-            try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).openStream();
-            Scanner scanner = new Scanner(inputStream)) {
-            if (scanner.hasNext()) {
-                consumer.accept(scanner.next());
-            }
-        } catch (IOException exception) {
-                plugin.getLogger().info("Update checker is broken, can't find an update!" + exception.getMessage());
+    public void getVersion(final Consumer<String> consumer) {
+        Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
+            try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=85523").openStream(); Scanner scanner = new Scanner(inputStream)) {
+                if (scanner.hasNext()) {
+                    consumer.accept(scanner.next());
+                }
+            } catch (IOException exception) {
+                this.plugin.getLogger().info("Cannot look for updates: " + exception.getMessage());
             }
         });
-    }
     }
 }

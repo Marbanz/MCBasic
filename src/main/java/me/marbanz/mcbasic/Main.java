@@ -1,10 +1,7 @@
 package me.marbanz.mcbasic;
 
 import me.marbanz.mcbasic.commands.*;
-import me.marbanz.mcbasic.events.Join;
-import me.marbanz.mcbasic.events.Join2;
-import me.marbanz.mcbasic.events.Muted;
-import me.marbanz.mcbasic.events.Quit;
+import me.marbanz.mcbasic.events.*;
 import me.marbanz.mcbasic.utils.Update;
 import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
@@ -32,10 +29,11 @@ public final class Main extends JavaPlugin {
 		int pluginId = 11266;
 		me.marbanz.mcbasic.utils.Metrics metrics = new me.marbanz.mcbasic.utils.Metrics(this, pluginId);
 
-		getServer().getPluginManager().registerEvents(new Join2(), this);
 		getServer().getPluginManager().registerEvents(new Join(), this);
+		getServer().getPluginManager().registerEvents(new Motd(), this);
 		getServer().getPluginManager().registerEvents(new Quit(), this);
 		getServer().getPluginManager().registerEvents(new Muted(), this);
+		getServer().getPluginManager().registerEvents(new CheckUpdate(), this);
 		getCommand("fly").setExecutor(new Fly());
 		getCommand("gamemode").setExecutor(new Gamemode());
 		getCommand("heal").setExecutor(new Heal());
@@ -62,14 +60,15 @@ public final class Main extends JavaPlugin {
 		getCommand("unmute").setExecutor(new Unmute());
 		getCommand("enderchest").setExecutor(new Enderchest());
 		saveDefaultConfig();
-
-		(new Update(this, 85523)).getLatestVersion(version -> {
-	          if (getDescription().getVersion().equalsIgnoreCase(version)) {
-	            System.out.println("[MCBasic] Plugin is up to date");
-	          } else {
-	            System.out.println("[MCBasic] Plugin need to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/ ");
-	          } 
-	        });
+		if (Boolean.parseBoolean(Main.getInstance().getConfig().getString("settings.update_checker"))) {
+		new Update(this).getVersion(version -> {
+			if (Float.parseFloat(getDescription().getVersion()) >= Float.parseFloat(version)) {
+				System.out.println("[MCBasic] Plugin is up to date");
+			} else {
+				System.out.println("[MCBasic] Plugin needs to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/ ");
+			}
+			});
+	}
 	}
 
 	public void onDisable() {

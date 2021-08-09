@@ -21,7 +21,7 @@ public class Tphome implements CommandExecutor {
                         Player target = Bukkit.getServer().getPlayerExact(args[0]);
                         if (target != null) {
                             if (Main.homeConfiguration.getConfigurationSection(target.getPlayer().getName() + ".home") == null) {
-                                p.sendMessage("§cThe home has not yet been set");
+                                p.sendMessage("§cThe home has not yet been set!");
                             } else {
                                 World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(target.getPlayer().getName() + ".home.world"));
                                 double x = Main.homeConfiguration.getDouble(target.getPlayer().getName() + ".home.x");
@@ -50,7 +50,7 @@ public class Tphome implements CommandExecutor {
                     Player target = Bukkit.getServer().getPlayerExact(args[0]);
                     if (target != null) {
                         if (Main.homeConfiguration.getConfigurationSection(target.getPlayer().getName() + ".home") == null) {
-                            sender.sendMessage("The home has not yet been set");
+                            sender.sendMessage("The home has not yet been set!");
                         } else {
                             World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(target.getPlayer().getName() + ".home.world"));
                             double x = Main.homeConfiguration.getDouble(target.getPlayer().getName() + ".home.x");

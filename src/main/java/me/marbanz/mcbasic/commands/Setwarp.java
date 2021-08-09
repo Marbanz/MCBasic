@@ -20,7 +20,7 @@ public class Setwarp implements CommandExecutor {
 							p.sendMessage("§cThis warp already exist");
 						} else {
 							Warpmanager.addWarp(args[0], p.getLocation());
-							p.sendMessage("§aCreated warp §e" + args[0]);
+							p.sendMessage("§aCreated warp §e" + args[0]+ "§a!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " created warp " + args[0]);
 						}
 						return true;

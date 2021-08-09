@@ -18,7 +18,7 @@ public class Home implements CommandExecutor {
 				Player p = (Player) sender;
 				if (sender.hasPermission("mcbasic.home")) {
 					if (Main.homeConfiguration.getConfigurationSection(p.getPlayer().getName() + ".home") == null) {
-						p.sendMessage("§cThe home has not yet been set");
+						p.sendMessage("§cThe home has not yet been set!");
 						return true;
 					} else {
 						World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(p.getPlayer().getName() + ".home.world"));

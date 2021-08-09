@@ -20,13 +20,13 @@ public class Tpwarp implements CommandExecutor {
 
                                 if (Warpmanager.exists(args[0])) {
                                     target.teleport(Warpmanager.getWarp(args[0]));
-                                    target.sendMessage("§aTeleported to warp §e" + args[0]);
+                                    target.sendMessage("§aTeleported to warp §e" + args[0]+ "§a!");
                                     sender.sendMessage(
-                                            "§aTeleported §e" + target.getPlayer().getName() + "§a to warp §e" + args[0]);
+                                            "§aTeleported §e" + target.getPlayer().getName() + "§a to warp §e" + args[0]+ "§a!");
                                     System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "
                                             + target.getPlayer().getName() + " to warp " + args[0]);
                                 } else {
-                                    sender.sendMessage("§aThe warp §e" + args[0] + "§a does not exist");
+                                    sender.sendMessage("§aThe warp §e" + args[0] + "§a does not exist!");
                                 }
                                 return true;
                             } else
@@ -49,12 +49,12 @@ public class Tpwarp implements CommandExecutor {
 
                         if (Warpmanager.exists(args[0])) {
                             target.teleport(Warpmanager.getWarp(args[0]));
-                            target.sendMessage("§aTeleported to warp §e" + args[0]);
-                            sender.sendMessage("Teleported " + target.getPlayer().getName() + " to warp " + args[0]);
+                            target.sendMessage("§aTeleported to warp §e" + args[0]+ "§a!");
+                            sender.sendMessage("Teleported " + target.getPlayer().getName() + " to warp " + args[0] + "!");
                             System.out.println("[MCBasic] Console teleported " + target.getPlayer().getName()
                                     + " to warp " + args[0]);
                         } else {
-                            sender.sendMessage("The warp " + args[0] + " does not exist");
+                            sender.sendMessage("The warp " + args[0] + " does not exist!");
                         }
                         return true;
                     } else

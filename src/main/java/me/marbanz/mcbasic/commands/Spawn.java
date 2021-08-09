@@ -18,7 +18,7 @@ public class Spawn implements CommandExecutor {
 				Player p = (Player) sender;
 				if (sender.hasPermission("mcbasic.spawn")) {
 					if (Main.spawnConfiguration.getConfigurationSection("spawn") == null) {
-						p.sendMessage("§cThe spawn has not yet been set");
+						p.sendMessage("§cThe spawn has not yet been set!");
 						return true;
 					} else {
 					World w = Bukkit.getServer().getWorld(Main.spawnConfiguration.getString("spawn.world"));

@@ -21,7 +21,7 @@ public class Tp implements CommandExecutor {
 						Player player = (Player) sender;
 						if (target != null) {
 							p.teleport(target);
-							p.sendMessage("§aYou teleported to §e" + target.getPlayer().getName() + "");
+							p.sendMessage("§aYou teleported to §e" + target.getPlayer().getName() + "§a!");
 							System.out.println("[MCBasic] " + player.getPlayer().getName() + " teleported to "
 									+ target.getPlayer().getName());
 							return true;
@@ -33,7 +33,7 @@ public class Tp implements CommandExecutor {
 						Player target2 = Bukkit.getServer().getPlayerExact(args[1]);
 						if (target != null && target2 != null) {
 							target.teleport(target2);
-							p.sendMessage("§aYou teleported §e"+ target.getPlayer().getName() +"§a to §e" + target2.getPlayer().getName() + "");
+							p.sendMessage("§aYou teleported §e"+ target.getPlayer().getName() +"§a to §e" + target2.getPlayer().getName() + "§a!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to "
 									+ target2.getPlayer().getName());
 							return true;
@@ -46,7 +46,7 @@ public class Tp implements CommandExecutor {
 							double y = Double.parseDouble(args[1]);
 							double z = Double.parseDouble(args[2]);
 							p.teleport(new Location(p.getWorld(), x, y, z));
-							p.sendMessage("§aYou teleported to the written coordinates");
+							p.sendMessage("§aYou teleported to the written coordinates!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported to X: " + x
 											+ " Y: " + y + " Z: " + z);
 						}catch (NumberFormatException e) {
@@ -63,7 +63,7 @@ public class Tp implements CommandExecutor {
 								double y = Double.parseDouble(args[2]);
 								double z = Double.parseDouble(args[3]);
 								target.teleport(new Location(p.getWorld(), x, y, z));
-								p.sendMessage("§aYou teleported §e" + target.getPlayer().getName() + "§a to the written coordinates");
+								p.sendMessage("§aYou teleported §e" + target.getPlayer().getName() + "§a to the written coordinates!");
 								System.out.println("[MCBasic] " + p.getPlayer().getName() + " teleported "+ target.getPlayer().getName() +" to X: " + x
 										+ " Y: " + y + " Z: " + z);
 							}catch (NumberFormatException e) {
@@ -90,7 +90,7 @@ public class Tp implements CommandExecutor {
 					Player target2 = Bukkit.getServer().getPlayerExact(args[1]);
 					if (target != null && target2 != null) {
 						target.teleport(target2);
-						sender.sendMessage("You teleported "+ target.getPlayer().getName() +" to " + target2.getPlayer().getName() + "");
+						sender.sendMessage("You teleported "+ target.getPlayer().getName() +" to " + target2.getPlayer().getName() + "!");
 						System.out.println("[MCBasic] Console teleported " + target.getPlayer().getName() + " to "
 								+ target2.getPlayer().getName());
 						return true;
@@ -105,7 +105,7 @@ public class Tp implements CommandExecutor {
 							double y = Double.parseDouble(args[2]);
 							double z = Double.parseDouble(args[3]);
 							target.teleport(new Location(target.getWorld(), x, y, z));
-							sender.sendMessage("You teleported " + target.getPlayer().getName() + " to the written coordinates");
+							sender.sendMessage("You teleported " + target.getPlayer().getName() + " to the written coordinates!");
 							System.out.println("[MCBasic] Console teleported "+ target.getPlayer().getName() +" to X: " + x
 									+ " Y: " + y + " Z: " + z);
 						}catch (NumberFormatException e) {

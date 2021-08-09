@@ -18,10 +18,10 @@ public class Delwarp implements CommandExecutor {
 					if (args.length == 1) {
 						if (Warpmanager.exists(args[0])) {
 							Warpmanager.removeWarp(args[0]);
-							p.sendMessage("§aWarp deleted");
+							p.sendMessage("§aWarp deleted!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " deleted the warp " + args[0]);
 						} else {
-							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist");
+							p.sendMessage("§cThe warp §e" + args[0] + "§c does not exist!");
 						}
 						return true;
 					} else {
@@ -37,10 +37,10 @@ public class Delwarp implements CommandExecutor {
 				if (args.length == 1) {
 					if (Warpmanager.exists(args[0])) {
 						Warpmanager.removeWarp(args[0]);
-						sender.sendMessage("Warp deleted");
+						sender.sendMessage("Warp deleted!");
 						System.out.println("[MCBasic] Console deleted the warp " + args[0]);
 					} else {
-						sender.sendMessage("The warp " + args[0] + " does not exist");
+						sender.sendMessage("The warp " + args[0] + " does not exist!");
 					}
 					return true;
 				} else {

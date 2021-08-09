@@ -20,7 +20,7 @@ public class Tphere implements CommandExecutor {
 						Player player = (Player) sender;
 						if (target != null) {
 							target.teleport(p.getLocation());
-							p.sendMessage("§aYou teleported here §e" + target.getPlayer().getName() + "");
+							p.sendMessage("§aYou teleported here §e" + target.getPlayer().getName() + "§a!");
 							System.out.println("[MCBasic] " + player.getPlayer().getName() + " teleported here "
 									+ target.getPlayer().getName());
 							return true;

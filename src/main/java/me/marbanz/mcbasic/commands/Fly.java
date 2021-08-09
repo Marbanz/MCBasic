@@ -19,11 +19,11 @@ public class Fly implements CommandExecutor{
 
 						if (p.getAllowFlight()) {
 							p.setAllowFlight(false);
-							sender.sendMessage("§aFly disabled");
+							sender.sendMessage("§aFly disabled!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " has disabled fly");
 						} else {
 							p.setAllowFlight(true);
-							sender.sendMessage("§aFly enabled");
+							sender.sendMessage("§aFly enabled!");
 							System.out.println("[MCBasic] " + p.getPlayer().getName() + " has enabled fly");
 						}
 						return true;
@@ -33,14 +33,14 @@ public class Fly implements CommandExecutor{
 						if (target != null) {
 							if (target.getAllowFlight()) {
 								target.setAllowFlight(false);
-								target.sendMessage("§aFly disabled");
-								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can't fly");
+								target.sendMessage("§aFly disabled!");
+								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can't fly!");
 								System.out.println("[MCBasic] " + player.getPlayer().getName()
 										+ " has disabled fly for " + target.getPlayer().getName());
 							} else {
 								target.setAllowFlight(true);
 								target.sendMessage("§aFly enabled");
-								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can fly");
+								sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can fly!");
 								System.out.println("[MCBasic] " + player.getPlayer().getName() + " has enabled fly for "
 										+ target.getPlayer().getName());
 							}
@@ -62,14 +62,14 @@ public class Fly implements CommandExecutor{
 					if (target != null) {
 						if (target.getAllowFlight()) {
 							target.setAllowFlight(false);
-							target.sendMessage("§aFly disabled");
-							sender.sendMessage("Now " + target.getPlayer().getName() + " can't fly");
+							target.sendMessage("§aFly disabled!");
+							sender.sendMessage("Now " + target.getPlayer().getName() + " can't fly!");
 							System.out
 									.println("[MCBasic] Console has disabled fly for " + target.getPlayer().getName());
 						} else {
 							target.setAllowFlight(true);
-							target.sendMessage("§aFly enabled");
-							sender.sendMessage("Now " + target.getPlayer().getName() + " can fly");
+							target.sendMessage("§aFly enabled!");
+							sender.sendMessage("Now " + target.getPlayer().getName() + " can fly!");
 							System.out.println("[MCBasic] Console has enabled fly for " + target.getPlayer().getName());
 						}
 					} else {

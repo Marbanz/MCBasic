@@ -16,12 +16,12 @@ public class Ping implements CommandExecutor{
 				Player p = (Player) sender;
 				if (sender.hasPermission("mcbasic.ping")) {
 					if (args.length == 0) {
-						p.sendMessage("§aYou have §e" + p.getPing() + "§a ms");
+						p.sendMessage("§aYou have §e" + p.getPing() + "§a ms!");
 					} else if (args.length == 1){
 						Player target = Bukkit.getServer().getPlayerExact(args[0]);
 						if (target != null) {
 							sender.sendMessage(
-									"§e" + target.getPlayer().getName() + "§a has §e" + target.getPing() + "§a ms");
+									"§e" + target.getPlayer().getName() + "§a has §e" + target.getPing() + "§a ms!");
 							return true;
 						} else
 							sender.sendMessage("§cPlayer not found");
@@ -37,7 +37,7 @@ public class Ping implements CommandExecutor{
 				if (args.length == 1) {
 					Player target = Bukkit.getServer().getPlayerExact(args[0]);
 					if (target != null) {
-						sender.sendMessage(target.getPlayer().getName() + " has " + target.getPing() + " ms");
+						sender.sendMessage(target.getPlayer().getName() + " has " + target.getPing() + " ms!");
 						return true;
 					} else
 						sender.sendMessage("Player not found");

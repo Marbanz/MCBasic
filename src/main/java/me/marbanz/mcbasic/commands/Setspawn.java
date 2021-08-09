@@ -25,7 +25,7 @@ public class Setspawn implements CommandExecutor {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-					p.sendMessage("§aSpawn set");
+					p.sendMessage("§aSpawn set!");
 					System.out.println(
 							"[MCBasic] " + p.getPlayer().getName() + " set the spawn to X: " + p.getLocation().getX()
 									+ " Y: " + p.getLocation().getY() + " Z: " + p.getLocation().getZ());

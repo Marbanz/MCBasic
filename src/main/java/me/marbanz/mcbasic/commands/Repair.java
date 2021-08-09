@@ -79,10 +79,10 @@ public class Repair implements CommandExecutor {
                         if (isRepairAble(repairingItem.getType()) && loreFine(repairingItem)) {
                             repairingItem.setDurability((short) 0);
                             p.setItemInHand(repairingItem);
-                            p.sendMessage("§aRepaired the item successfully!");
-                            System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired his item!");
+                            p.sendMessage("§aRepaired the item§e successfully!");
+                            System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired his item");
                         } else {
-                            p.sendMessage("§cYou can't repair this item");
+                            p.sendMessage("§cYou can't repair this item!");
                         }
                     } else if (args.length == 1) {
                         Player target = Bukkit.getServer().getPlayerExact(args[0]);
@@ -91,10 +91,10 @@ public class Repair implements CommandExecutor {
                             if (isRepairAble(repairingItem.getType()) && loreFine(repairingItem)) {
                                 repairingItem.setDurability((short) 0);
                                 target.setItemInHand(repairingItem);
-                                sender.sendMessage("§aRepaired " +target.getPlayer().getName()+ " item successfully!");
-                                System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired "+target.getPlayer().getName()+" item!");
+                                sender.sendMessage("§aRepaired §e" +target.getPlayer().getName()+ "§a item§e successfully!");
+                                System.out.println("[MCBasic] "+p.getPlayer().getName()+ " repaired "+target.getPlayer().getName()+" item");
                             } else {
-                                sender.sendMessage("§cYou can't repair this item");
+                                sender.sendMessage("§cYou can't repair this item!");
                             }
                             return true;
                         } else
@@ -119,9 +119,9 @@ public class Repair implements CommandExecutor {
                             repairingItem.setDurability((short) 0);
                             target.setItemInHand(repairingItem);
                             sender.sendMessage("Repaired "+target.getPlayer().getName()+" item successfully!");
-                            System.out.println("[MCBasic] Console repaired "+target.getPlayer().getName()+" item!");
+                            System.out.println("[MCBasic] Console repaired "+target.getPlayer().getName()+" item");
                         }else{
-                            sender.sendMessage("You can't repair this item");
+                            sender.sendMessage("You can't repair this item!");
                         }
                         return true;
                     } else

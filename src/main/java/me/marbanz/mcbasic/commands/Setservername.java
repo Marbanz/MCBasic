@@ -19,7 +19,7 @@ public class Setservername implements CommandExecutor {
                         String str = String.join(" ", args);
                         Main.getInstance().getConfig().set("settings.server_name", str);
                         Main.getInstance().saveConfig();
-                        p.sendMessage("§aName set");
+                        p.sendMessage("§aName set!");
                         System.out.println("[MCBasic] " + p.getPlayer().getName() + " set the name of the server to " + str);
                         return true;
                     } else {
@@ -35,7 +35,7 @@ public class Setservername implements CommandExecutor {
                     String str = String.join(" ", args);
                     Main.getInstance().getConfig().set("settings.server_name", str);
                     Main.getInstance().saveConfig();
-                    sender.sendMessage("Name set");
+                    sender.sendMessage("Name set!");
                     System.out.println("[MCBasic] Console set the name of the server to " + str);
                         return true;
 
