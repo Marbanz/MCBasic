@@ -1,0 +1,181 @@
+name: MCBasic
+version: ${project.version}
+main: me.marbanz.mcbasic.Main
+authors: [ Marbanz ]
+api-version: 1.17
+description: A simple plugin for Minecraft
+website: https://www.spigotmc.org/resources/mcbasic.85523/
+commands:
+  fly:
+    description: allow a player to fly
+    aliases: [ ]
+    permission: mcbasic.fly
+    usage: "Use: /fly <player>"
+
+  gamemode:
+    description: set the gamemode of a player
+    aliases: gm
+    permission: mcbasic.gamemode
+    usage: "Use: /gamemode [0|1|2|3] <player>"
+
+  heal:
+    description: heal a player
+    aliases: [ ]
+    permission: mcbasic.heal
+    usage: "Use: /heal <player>"
+
+  feed:
+    description: feed a player
+    aliases: [ ]
+    permission: mcbasic.feed
+    usage: "Use: /feed <player>"
+
+  tp:
+    description: teleport
+    aliases: [ ]
+    permission: mcbasic.tp
+    usage: "Use: /tp <player> [<player> | <x> <y> <z>]"
+
+  tphere:
+    description: teleport a player to you
+    aliases: tph
+    permission: mcbasic.tphere
+    usage: "Use: /tphere <player>"
+
+  spawn:
+    description: teleport to spawn
+    aliases: sp
+    permission: mcbasic.spawn
+    usage: "Use: /spawn"
+
+  setspawn:
+    description: set the spawn
+    aliases: setsp
+    permission: mcbasic.setspawn
+    usage: "Use: /setspawn"
+
+  warp:
+    description: teleport to a warp
+    aliases: wr
+    permission: mcbasic.warp
+    usage: "Use: /warp <warpname>"
+
+  setwarp:
+    description: set a warp
+    aliases: setwr
+    permission: mcbasic.setwarp
+    usage: "Use: /setwarp <warpname>"
+
+  delwarp:
+    description: delete a warp
+    aliases: delwr
+    permission: mcbasic.delwarp
+    usage: "Use: /delwarp <warpname>"
+
+  warplist:
+    description: see the list of the warps
+    aliases: wl
+    permission: mcbasic.warplist
+    usage: "Use: /warplist"
+
+  ping:
+    description: get the ping of a player
+    aliases: ms
+    permission: mcbasic.ping
+    usage: "Use: /ping <player>"
+
+  boom:
+    description: spawn a tnt under a player
+    aliases: explode
+    permission: mcbasic.boom
+    usage: "Use: /boom <player>"
+
+  home:
+    description: teleport to home
+    aliases: h
+    permission: mcbasic.home
+    usage: "Use: /home"
+
+  sethome:
+    description: set the home
+    aliases: seth
+    permission: mcbasic.sethome
+    usage: "Use: /sethome"
+
+  tpwarp:
+    description: teleport a player to a warp
+    aliases: tpwr
+    permission: mcbasic.tpwarp
+    usage: "Use: /tpwarp <warpname> <player>"
+
+  spawnmob:
+    description: spawn a mob to a player
+    aliases: sm
+    permission: mcbasic.spawnmob
+    usage: "Use: /spawnmob <mobname> <player>"
+
+  setservername:
+    description: set the name of the server
+    aliases: ssn
+    permission: mcbasic.setservername
+    usage: "Use: /setservername <servername>"
+
+  tphome:
+    description: tp a player to his home
+    aliases: [ ]
+    permission: mcbasic.tphome
+    usage: "Use: /tphome <player>"
+
+  tpspawn:
+    description: tp a player to the spawn
+    aliases: [ ]
+    permission: mcbasic.tpspawn
+    usage: "Use: /tpspawn <player>"
+
+  repair:
+    description: repair the item in the hands
+    aliases: [ ]
+    permission: mcbasic.repair
+    usage: "Use: /repair <player>"
+
+  mute:
+    description: mute a player
+    aliases: [ ]
+    permission: mcbasic.mute
+    usage: "Use: /mute <player>"
+
+  unmute:
+    description: unmute a player
+    aliases: [ ]
+    permission: mcbasic.mute
+    usage: "Use: /unmute <player>"
+
+  enderchest:
+    description: open your enderchest
+    aliases: [ ]
+    permission: mcbasic.enderchest
+    usage: "Use: /enderchest"
+
+  invsee:
+    description: see player inventory
+    aliases: inv
+    permission: mcbasic.invsee
+    usage: "Use: /invsee <player>"
+
+  enderchestsee:
+    description: see player enderchest
+    aliases: endchestsee
+    permission: mcbasic.enderchestsee
+    usage: "Use: /enderchestsee <player>"
+
+  god:
+    description: makes the player invulnerable
+    aliases: [ ]
+    permission: mcbasic.god
+    usage: "Use: /god <player>"
+
+  coordinates:
+    description: stores coordinates
+    aliases: [cord]
+    permission: mcbasic.coordinates
+    usage: "Use: /coordinates [add|remove|list|location]"
