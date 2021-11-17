@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 public class Quit implements Listener {
 
     @EventHandler
-    public void onJoin(PlayerQuitEvent e) {
+    public void onQuit(PlayerQuitEvent e) {
         if (Main.getInstance().getConfig().getString("settings.join-quit_message") == null) {
             Main.getInstance().getConfig().set("settings.join-quit_message", true);
             Main.getInstance().saveConfig();

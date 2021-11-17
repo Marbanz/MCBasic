@@ -11,7 +11,7 @@ MCBasic is a simple plugin for Spigot servers, it's a lite plugin so it can run 
 MCBasic is currently in beta and in the early stages of coding so expect to find some bugs.
 
 You can find commands and permissions at this link:
-https://github.com/Marbanz/MCBasic/blob/main/COMMANDS.txt
+https://github.com/Marbanz/MCBasic/blob/master/COMMANDS.txt
 
 # Requirements
 
