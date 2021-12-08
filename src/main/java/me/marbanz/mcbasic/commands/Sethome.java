@@ -39,9 +39,7 @@ public class Sethome implements CommandExecutor {
                 sender.sendMessage("You can't do this command from the console!");
                 return true;
             }
-
         }
         return false;
     }
-
 }

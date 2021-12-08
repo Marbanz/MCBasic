@@ -18,7 +18,6 @@ public class Fly implements CommandExecutor {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.fly")) {
                     if (args.length == 0) {
-
                         if (p.getAllowFlight()) {
                             p.setAllowFlight(false);
                             sender.sendMessage("§aFly disabled!");
@@ -50,13 +49,11 @@ public class Fly implements CommandExecutor {
                             sender.sendMessage("§cPlayer not found");
                         }
                         return true;
-
                     }
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
                 }
-
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 1) {
@@ -77,7 +74,6 @@ public class Fly implements CommandExecutor {
                         sender.sendMessage("Player not found");
                     }
                     return true;
-
                 } else {
                     return false;
                 }

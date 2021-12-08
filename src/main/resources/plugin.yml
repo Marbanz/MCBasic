@@ -1,5 +1,5 @@
 name: MCBasic
-version: ${project.version}
+version: 1.10
 main: me.marbanz.mcbasic.Main
 authors: [ Marbanz ]
 api-version: 1.17

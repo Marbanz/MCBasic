@@ -46,6 +46,15 @@ public class Repair implements CommandExecutor {
                 material == Material.DIAMOND_CHESTPLATE ||
                 material == Material.DIAMOND_HELMET ||
                 material == Material.DIAMOND_LEGGINGS ||
+                material == Material.NETHERITE_AXE ||
+                material == Material.NETHERITE_HOE ||
+                material == Material.NETHERITE_SWORD ||
+                material == Material.NETHERITE_SHOVEL ||
+                material == Material.NETHERITE_PICKAXE ||
+                material == Material.NETHERITE_BOOTS ||
+                material == Material.NETHERITE_CHESTPLATE ||
+                material == Material.NETHERITE_HELMET ||
+                material == Material.NETHERITE_LEGGINGS ||
                 material == Material.IRON_BOOTS ||
                 material == Material.IRON_CHESTPLATE ||
                 material == Material.IRON_HELMET ||
@@ -86,6 +95,7 @@ public class Repair implements CommandExecutor {
                         } else {
                             p.sendMessage("§cYou can't repair this item!");
                         }
+                        return true;
                     } else if (args.length == 1) {
                         Player target = Bukkit.getServer().getPlayerExact(args[0]);
                         if (target != null) {
@@ -98,19 +108,16 @@ public class Repair implements CommandExecutor {
                             } else {
                                 sender.sendMessage("§cYou can't repair this item!");
                             }
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
                         return true;
                     } else {
                         return false;
                     }
-
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
+                    return true;
                 }
-                return true;
-
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 1) {
@@ -125,7 +132,6 @@ public class Repair implements CommandExecutor {
                         } else {
                             sender.sendMessage("You can't repair this item!");
                         }
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
@@ -134,9 +140,6 @@ public class Repair implements CommandExecutor {
                 }
             }
         }
-
         return false;
-
     }
-
 }

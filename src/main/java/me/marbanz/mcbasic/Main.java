@@ -82,7 +82,7 @@ public final class Main extends JavaPlugin {
             } catch (IOException e) {
                 getLogger().info("Cannot look for updates: " + e.getMessage());
             }
-            if (Double.parseDouble(getDescription().getVersion()) >= Double.parseDouble(v)) {
+            if (getDescription().getVersion().equalsIgnoreCase(v)) {
                 getLogger().info("Plugin is up to date");
             } else {
                 getLogger().warning("Plugin needs to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/");

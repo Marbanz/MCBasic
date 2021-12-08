@@ -27,14 +27,10 @@ public class Spawn implements CommandExecutor {
                         double x = Main.spawnConfiguration.getDouble("spawn.x");
                         double y = Main.spawnConfiguration.getDouble("spawn.y");
                         double z = Main.spawnConfiguration.getDouble("spawn.z");
-                        if (args.length == 0) {
-                            p.teleport(new Location(w, x, y, z));
-                            p.sendMessage("§aTeleported to spawn!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " teleported to spawn");
-                            return true;
-                        } else {
-                            return false;
-                        }
+                        p.teleport(new Location(w, x, y, z));
+                        p.sendMessage("§aTeleported to spawn!");
+                        plugin.getLogger().info(p.getPlayer().getName() + " teleported to spawn");
+                        return true;
                     }
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
@@ -48,5 +44,4 @@ public class Spawn implements CommandExecutor {
         }
         return false;
     }
-
 }

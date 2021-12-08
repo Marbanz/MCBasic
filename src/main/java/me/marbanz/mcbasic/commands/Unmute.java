@@ -32,11 +32,10 @@ public class Unmute implements CommandExecutor {
                                 }
                             } else {
                                 p.sendMessage("§aThe player in not muted!");
+                                return true;
                             }
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
-
                         return true;
                     } else {
                         return false;
@@ -61,11 +60,10 @@ public class Unmute implements CommandExecutor {
                             }
                         } else {
                             sender.sendMessage("The player in not muted!");
+                            return true;
                         }
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
-
                     return true;
                 } else {
                     return false;

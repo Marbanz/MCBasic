@@ -28,7 +28,7 @@ public class CheckUpdate implements Listener {
                     } catch (IOException exception) {
                         plugin.getLogger().info("Cannot look for updates: " + exception.getMessage());
                     }
-                    if (!(Double.parseDouble(plugin.getDescription().getVersion()) >= Double.parseDouble(v))) {
+                    if (!(plugin.getDescription().getVersion().equalsIgnoreCase(v))) {
                         e.getPlayer().sendMessage("§c!!!!§a MCBasic needs to be updated §c!!!!");
                     }
                 }

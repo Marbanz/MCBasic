@@ -32,7 +32,6 @@ public class Tphome implements CommandExecutor {
                                 target.teleport(new Location(w, x, y, z));
                                 p.sendMessage("§aTeleported §e" + target.getPlayer().getName() + "§a to his home!");
                                 plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to his home");
-                                return true;
                             }
                         } else {
                             sender.sendMessage("§cPlayer not found");
@@ -61,20 +60,17 @@ public class Tphome implements CommandExecutor {
                             target.teleport(new Location(w, x, y, z));
                             sender.sendMessage("Teleported " + target.getPlayer().getName() + " to his home!");
                             plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to his home");
-                            return true;
-
                         }
                     } else {
                         sender.sendMessage("Player not found");
                         return true;
                     }
+                    return true;
                 } else {
                     return false;
                 }
             }
-
         }
         return false;
     }
-
 }

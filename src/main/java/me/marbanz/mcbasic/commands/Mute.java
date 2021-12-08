@@ -33,10 +33,8 @@ public class Mute implements CommandExecutor {
                                     e.printStackTrace();
                                 }
                             }
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
-
                         return true;
                     } else {
                         return false;
@@ -62,16 +60,13 @@ public class Mute implements CommandExecutor {
                                 e.printStackTrace();
                             }
                         }
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
-
                     return true;
                 } else {
                     return false;
                 }
             }
-
         }
         return false;
     }

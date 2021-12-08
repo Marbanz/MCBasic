@@ -63,7 +63,7 @@ public class God implements CommandExecutor {
                             target.sendMessage("§aGod mode enabled");
                             plugin.getLogger().info("Console enabled god mode for " + target.getPlayer().getName());
                         }
-                    }else
+                    } else
                         sender.sendMessage("Player not found");
                     return true;
                 } else {

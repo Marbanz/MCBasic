@@ -17,28 +17,28 @@ public class Ping implements CommandExecutor {
                 if (sender.hasPermission("mcbasic.ping")) {
                     if (args.length == 0) {
                         p.sendMessage("§aYou have §e" + p.getPing() + "§a ms!");
+                        return true;
                     } else if (args.length == 1) {
                         Player target = Bukkit.getServer().getPlayerExact(args[0]);
                         if (target != null) {
                             sender.sendMessage(
                                     "§e" + target.getPlayer().getName() + "§a has §e" + target.getPing() + "§a ms!");
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
+                        return true;
                     } else {
                         return false;
                     }
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
+                    return true;
                 }
-                return true;
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 1) {
                     Player target = Bukkit.getServer().getPlayerExact(args[0]);
                     if (target != null) {
                         sender.sendMessage(target.getPlayer().getName() + " has " + target.getPing() + " ms!");
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
@@ -47,9 +47,6 @@ public class Ping implements CommandExecutor {
                 }
             }
         }
-
         return false;
-
     }
-
 }

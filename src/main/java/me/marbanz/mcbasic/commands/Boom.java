@@ -25,7 +25,6 @@ public class Boom implements CommandExecutor {
                             plugin.getLogger().info(player.getPlayer().getName() + " /Boomed "
                                     + target.getPlayer().getName());
                             target.getWorld().createExplosion(target.getLocation(), 1, false, false);
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
                         return true;
@@ -46,7 +45,6 @@ public class Boom implements CommandExecutor {
                         target.sendMessage("§aBoom!");
                         plugin.getLogger().info("Console /Boomed " + target.getPlayer().getName());
                         target.getWorld().createExplosion(target.getLocation(), 1, false, false);
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
@@ -56,7 +54,5 @@ public class Boom implements CommandExecutor {
             }
         }
         return false;
-
     }
-
 }

@@ -33,15 +33,12 @@ public class Warp implements CommandExecutor {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
                 }
-
             }
             if (sender instanceof ConsoleCommandSender) {
                 sender.sendMessage("You can't do this command from the console!");
                 return true;
             }
-
         }
         return false;
     }
-
 }

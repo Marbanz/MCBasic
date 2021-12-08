@@ -28,14 +28,26 @@ public class Tpspawn implements CommandExecutor {
                         double y = Main.spawnConfiguration.getDouble("spawn.y");
                         double z = Main.spawnConfiguration.getDouble("spawn.z");
                         if (args.length == 1) {
-                            Player target = Bukkit.getServer().getPlayerExact(args[0]);
-                            if (target != null) {
-                                target.teleport(new Location(w, x, y, z));
-                                target.sendMessage("§aTeleported to spawn!");
-                                sender.sendMessage("§aTeleported §e" + target.getPlayer().getName() + "§a to spawn!");
-                                plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to spawn");
+                            if (args[0].equalsIgnoreCase("@a")) {
+                                for (Player target : plugin.getServer().getOnlinePlayers()) {
+                                    if (target != null) {
+                                        target.teleport(new Location(w, x, y, z));
+                                        target.sendMessage("§aTeleported to spawn!");
+                                    }
+                                }
+                                sender.sendMessage("§aTeleported §eall the players §ato spawn!");
+                                plugin.getLogger().info(p.getPlayer().getName() + " teleported all the players to spawn");
                             } else {
-                                sender.sendMessage("§cPlayer not found");
+                                Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                                if (target != null) {
+                                    target.teleport(new Location(w, x, y, z));
+                                    target.sendMessage("§aTeleported to spawn!");
+                                    sender.sendMessage("§aTeleported §e" + target.getPlayer().getName() + "§a to spawn!");
+                                    plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to spawn");
+                                } else {
+                                    sender.sendMessage("§cPlayer not found");
+                                    return true;
+                                }
                             }
                             return true;
                         } else {
@@ -53,14 +65,26 @@ public class Tpspawn implements CommandExecutor {
                 double y = Main.spawnConfiguration.getDouble("spawn.y");
                 double z = Main.spawnConfiguration.getDouble("spawn.z");
                 if (args.length == 1) {
-                    Player target = Bukkit.getServer().getPlayerExact(args[0]);
-                    if (target != null) {
-                        target.teleport(new Location(w, x, y, z));
-                        target.sendMessage("§aTeleported to spawn!");
-                        sender.sendMessage("Teleported " + target.getPlayer().getName() + " to spawn!");
-                        plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to spawn");
+                    if (args[0].equalsIgnoreCase("@a")) {
+                        for (Player target : plugin.getServer().getOnlinePlayers()) {
+                            if (target != null) {
+                                target.teleport(new Location(w, x, y, z));
+                                target.sendMessage("§aTeleported to spawn!");
+                            }
+                        }
+                        sender.sendMessage("Teleported all the players to spawn!");
+                        plugin.getLogger().info("Console teleported all the players to spawn");
                     } else {
-                        sender.sendMessage("Player not found");
+                        Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                        if (target != null) {
+                            target.teleport(new Location(w, x, y, z));
+                            target.sendMessage("§aTeleported to spawn!");
+                            sender.sendMessage("Teleported " + target.getPlayer().getName() + " to spawn!");
+                            plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to spawn");
+                        } else {
+                            sender.sendMessage("Player not found");
+                            return true;
+                        }
                     }
                     return true;
                 } else {
@@ -70,5 +94,4 @@ public class Tpspawn implements CommandExecutor {
         }
         return false;
     }
-
 }

@@ -21,19 +21,16 @@ public class Home implements CommandExecutor {
                 if (sender.hasPermission("mcbasic.home")) {
                     if (Main.homeConfiguration.getConfigurationSection(p.getPlayer().getName() + ".home") == null) {
                         p.sendMessage("§cThe home has not yet been set!");
-                        return true;
                     } else {
                         World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(p.getPlayer().getName() + ".home.world"));
                         double x = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.x");
                         double y = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.y");
                         double z = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.z");
-                        if (args.length == 0) {
-                            p.teleport(new Location(w, x, y, z));
-                            p.sendMessage("§aTeleported to home!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " teleported to home");
-                            return true;
-                        }
+                        p.teleport(new Location(w, x, y, z));
+                        p.sendMessage("§aTeleported to home!");
+                        plugin.getLogger().info(p.getPlayer().getName() + " teleported to home");
                     }
+                    return true;
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
@@ -43,9 +40,7 @@ public class Home implements CommandExecutor {
                 sender.sendMessage("You can't do this command from the console!");
                 return true;
             }
-
         }
         return false;
     }
-
 }

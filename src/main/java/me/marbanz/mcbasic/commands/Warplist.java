@@ -28,5 +28,4 @@ public class Warplist implements CommandExecutor {
         }
         return false;
     }
-
 }

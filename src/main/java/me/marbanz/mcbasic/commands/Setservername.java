@@ -40,12 +40,10 @@ public class Setservername implements CommandExecutor {
                     sender.sendMessage("Name set!");
                     plugin.getLogger().info("Console set the name of the server to " + str);
                     return true;
-
                 } else {
                     return false;
                 }
             }
-
         }
         return false;
     }

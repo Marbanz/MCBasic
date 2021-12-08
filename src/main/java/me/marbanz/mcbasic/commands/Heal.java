@@ -25,17 +25,27 @@ public class Heal implements CommandExecutor {
                         return true;
                     }
                     if (args.length == 1) {
-                        Player target = Bukkit.getServer().getPlayerExact(args[0]);
-                        Player player = (Player) sender;
-                        if (target != null) {
-                            target.setHealth(target.getMaxHealth());
-                            target.sendMessage("§aYou have been healed!");
-                            sender.sendMessage("§aYou healed §e" + target.getPlayer().getName() + "§a!");
-                            plugin.getLogger().info(player.getPlayer().getName() + " healed "
-                                    + target.getPlayer().getName());
-                            return true;
-                        } else
-                            sender.sendMessage("§cPlayer not found");
+                        if (args[0].equalsIgnoreCase("@a")) {
+                            for (Player target : plugin.getServer().getOnlinePlayers()) {
+                                if (target != null) {
+                                    target.setHealth(target.getMaxHealth());
+                                    target.sendMessage("§aYou have been healed!");
+                                }
+                            }
+                            p.sendMessage("§aYou healed §eall the players§a!");
+                            plugin.getLogger().info(p.getPlayer().getName() + " healed all the players");
+                        } else {
+                            Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                            Player player = (Player) sender;
+                            if (target != null) {
+                                target.setHealth(target.getMaxHealth());
+                                target.sendMessage("§aYou have been healed!");
+                                sender.sendMessage("§aYou healed §e" + target.getPlayer().getName() + "§a!");
+                                plugin.getLogger().info(player.getPlayer().getName() + " healed "
+                                        + target.getPlayer().getName());
+                            } else
+                                sender.sendMessage("§cPlayer not found");
+                        }
                         return true;
                     }
                 } else {
@@ -45,24 +55,31 @@ public class Heal implements CommandExecutor {
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 1) {
-                    Player target = Bukkit.getServer().getPlayerExact(args[0]);
-                    if (target != null) {
-                        target.setHealth(target.getMaxHealth());
-                        target.sendMessage("§aYou have been healed!");
-                        sender.sendMessage("You healed " + target.getPlayer().getName() + "!");
-                        plugin.getLogger().info("Console healed " + target.getPlayer().getName());
-                        return true;
-                    } else
-                        sender.sendMessage("Player not found");
+                    if (args[0].equalsIgnoreCase("@a")) {
+                        for (Player target : plugin.getServer().getOnlinePlayers()) {
+                            if (target != null) {
+                                target.setHealth(target.getMaxHealth());
+                                target.sendMessage("§aYou have been healed!");
+                            }
+                        }
+                        sender.sendMessage("You healed all the players!");
+                        plugin.getLogger().info("Console healed all the players");
+                    } else {
+                        Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                        if (target != null) {
+                            target.setHealth(target.getMaxHealth());
+                            target.sendMessage("§aYou have been healed!");
+                            sender.sendMessage("You healed " + target.getPlayer().getName() + "!");
+                            plugin.getLogger().info("Console healed " + target.getPlayer().getName());
+                        } else
+                            sender.sendMessage("Player not found");
+                    }
                     return true;
                 } else {
                     return false;
                 }
             }
         }
-
         return false;
-
     }
-
 }

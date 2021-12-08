@@ -44,22 +44,23 @@ public class Coordinates implements CommandExecutor {
                                     } else {
                                         p.sendMessage("§cThe coordinates §e" + args[1] + "§c does not exist!");
                                     }
-                                    return true;
+
                                 } else {
-                                    return false;
+                                    p.sendMessage("§cYou need to write the name of the coordinates");
                                 }
+                                return true;
                             }
                             case "location": {
                                 if (args.length == 2) {
                                     if (Coordinatesmanager.exists(args[1])) {
-                                        Coordinatesmanager.getCoordinates(p , args[1]);
+                                        Coordinatesmanager.getCoordinates(p, args[1]);
                                     } else {
                                         p.sendMessage("§cThe coordinates §e" + args[1] + "§c does not exist!");
                                     }
-                                    return true;
                                 } else {
-                                    return false;
+                                    p.sendMessage("§cYou need to write the name of the coordinates");
                                 }
+                                return true;
                             }
                             default: {
                                 return false;
@@ -86,10 +87,10 @@ public class Coordinates implements CommandExecutor {
                                 } else {
                                     sender.sendMessage("The coordinates " + args[1] + " does not exist!");
                                 }
-                                return true;
                             } else {
-                                return false;
+                                sender.sendMessage("You need to write the name of the coordinates");
                             }
+                            return true;
                         }
                         default: {
                             sender.sendMessage("Use: /coordinates [list|remove]");

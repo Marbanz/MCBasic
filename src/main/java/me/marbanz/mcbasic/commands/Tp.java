@@ -26,21 +26,33 @@ public class Tp implements CommandExecutor {
                             p.sendMessage("§aYou teleported to §e" + target.getPlayer().getName() + "§a!");
                             plugin.getLogger().info(player.getPlayer().getName() + " teleported to "
                                     + target.getPlayer().getName());
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
                         return true;
                     } else if (args.length == 2) {
-                        Player target = Bukkit.getServer().getPlayerExact(args[0]);
                         Player target2 = Bukkit.getServer().getPlayerExact(args[1]);
-                        if (target != null && target2 != null) {
-                            target.teleport(target2);
-                            p.sendMessage("§aYou teleported §e" + target.getPlayer().getName() + "§a to §e" + target2.getPlayer().getName() + "§a!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to "
-                                    + target2.getPlayer().getName());
+                        if (args[0].equalsIgnoreCase("@a")) {
+                            if (target2 != null) {
+                                for (Player target : plugin.getServer().getOnlinePlayers()) {
+                                    if (target != null)
+                                        target.teleport(target2);
+                                }
+                                p.sendMessage("§aYou teleported §eall the players §ato §e" + target2.getPlayer().getName() + "§a!");
+                                plugin.getLogger().info(p.getPlayer().getName() + " teleported all the players to "
+                                        + target2.getPlayer().getName());
+                            } else
+                                sender.sendMessage("§cPlayer not found");
                             return true;
-                        } else
-                            sender.sendMessage("§cPlayer not found");
+                        } else {
+                            Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                            if (target != null && target2 != null) {
+                                target.teleport(target2);
+                                p.sendMessage("§aYou teleported §e" + target.getPlayer().getName() + "§a to §e" + target2.getPlayer().getName() + "§a!");
+                                plugin.getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to "
+                                        + target2.getPlayer().getName());
+                            } else
+                                sender.sendMessage("§cPlayer not found");
+                        }
                         return true;
                     } else if (args.length == 3) {
                         try {
@@ -54,7 +66,7 @@ public class Tp implements CommandExecutor {
                         } catch (NumberFormatException e) {
                             sender.sendMessage("§cError in the coordinates or in the syntax of the command");
                             sender.sendMessage("§fUse: /tp <player> [<player> | <x> <y> <z>]");
-                            System.out.println(e);
+                            return true;
                         }
                         return true;
                     } else if (args.length == 4) {
@@ -71,13 +83,11 @@ public class Tp implements CommandExecutor {
                             } catch (NumberFormatException e) {
                                 sender.sendMessage("§cError in the coordinates or in the syntax of the command");
                                 sender.sendMessage("§fUse: /tp <player> [<player> | <x> <y> <z>]");
-                                System.out.println(e);
+                                return true;
                             }
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
                         return true;
-
                     } else {
                         return false;
                     }
@@ -88,16 +98,28 @@ public class Tp implements CommandExecutor {
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 2) {
-                    Player target = Bukkit.getServer().getPlayerExact(args[0]);
                     Player target2 = Bukkit.getServer().getPlayerExact(args[1]);
-                    if (target != null && target2 != null) {
-                        target.teleport(target2);
-                        sender.sendMessage("You teleported " + target.getPlayer().getName() + " to " + target2.getPlayer().getName() + "!");
-                        plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to "
-                                + target2.getPlayer().getName());
+                    if (args[0].equalsIgnoreCase("@a")) {
+                        if (target2 != null) {
+                            for (Player target : plugin.getServer().getOnlinePlayers()) {
+                                if (target != null)
+                                    target.teleport(target2);
+                            }
+                            sender.sendMessage("You teleported all the players to " + target2.getPlayer().getName() + "!");
+                            plugin.getLogger().info("Console teleported all the players to "
+                                    + target2.getPlayer().getName());
+                        } else
+                            sender.sendMessage("Player not found");
                         return true;
-                    } else
-                        sender.sendMessage("§cPlayer not found");
+                    } else {
+                        Player target = Bukkit.getServer().getPlayerExact(args[0]);
+                        if (target != null && target2 != null) {
+                            target.teleport(target2);
+                            sender.sendMessage("You teleported " + target.getPlayer().getName() + " to " + target2.getPlayer().getName() + "!");
+                            plugin.getLogger().info("Console teleported " + target.getPlayer().getName() + " to " + target2.getPlayer().getName());
+                        } else
+                            sender.sendMessage("Player not found");
+                    }
                     return true;
                 } else if (args.length == 4) {
                     Player target = Bukkit.getServer().getPlayerExact(args[0]);
@@ -113,20 +135,16 @@ public class Tp implements CommandExecutor {
                         } catch (NumberFormatException e) {
                             sender.sendMessage("Error in the coordinates or in the syntax of the command");
                             sender.sendMessage("Use: /tp <player> [<player> | <x> <y> <z>]");
-                            System.out.println(e);
+                            return true;
                         }
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
-
                 } else {
                     return false;
                 }
             }
         }
         return false;
-
     }
-
 }

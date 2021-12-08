@@ -49,44 +49,86 @@ public class Gamemode implements CommandExecutor {
                     if (args.length == 2) {
                         Player target = Bukkit.getServer().getPlayerExact(args[1]);
                         Player player = (Player) sender;
-                        if (target != null) {
+                        if (target != null || args[1].equalsIgnoreCase("@a")) {
                             if (args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative")
                                     || args[0].equalsIgnoreCase("c")) {
-                                target.setGameMode(GameMode.CREATIVE);
-                                target.sendMessage("§aGamemode set to §eCreative§a!");
-                                sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eCreative§a!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " set "
-                                        + target.getPlayer().getName() + " gamemode to Creative");
+                                if (args[1].equalsIgnoreCase("@a")) {
+                                    for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                        if (target2 != null) {
+                                            target2.setGameMode(GameMode.CREATIVE);
+                                            target2.sendMessage("§aGamemode set to §eCreative§a!");
+                                        }
+                                    }
+                                    sender.sendMessage("§eAll the players §aare in §eCreative§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set all the players gamemode to Creative");
+                                } else {
+                                    target.setGameMode(GameMode.CREATIVE);
+                                    target.sendMessage("§aGamemode set to §eCreative§a!");
+                                    sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eCreative§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set "
+                                            + target.getPlayer().getName() + " gamemode to Creative");
+                                }
                             } else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
                                     || args[0].equalsIgnoreCase("s")) {
-                                target.setGameMode(GameMode.SURVIVAL);
-                                target.sendMessage("§aGamemode set to §eSurvival§a!");
-                                sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSurvival§a!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " set "
-                                        + target.getPlayer().getName() + " gamemode to Survival");
+                                if (args[1].equalsIgnoreCase("@a")) {
+                                    for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                        if (target2 != null) {
+                                            target2.setGameMode(GameMode.SURVIVAL);
+                                            target2.sendMessage("§aGamemode set to §eSurvival§a!");
+                                        }
+                                    }
+                                    sender.sendMessage("§eAll the players §aare in §eSurvival§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set all the players gamemode to Survival");
+                                } else {
+                                    target.setGameMode(GameMode.SURVIVAL);
+                                    target.sendMessage("§aGamemode set to §eSurvival§a!");
+                                    sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSurvival§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set "
+                                            + target.getPlayer().getName() + " gamemode to Survival");
+                                }
                             } else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
                                     || args[0].equalsIgnoreCase("a")) {
-                                target.setGameMode(GameMode.ADVENTURE);
-                                target.sendMessage("§aGamemode set to §eAdventure§a!");
-                                sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eAdventure§a!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " set "
-                                        + target.getPlayer().getName() + " gamemode to Adventure");
+                                if (args[1].equalsIgnoreCase("@a")) {
+                                    for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                        if (target2 != null) {
+                                            target2.setGameMode(GameMode.ADVENTURE);
+                                            target2.sendMessage("§aGamemode set to §eAdventure§a!");
+                                        }
+                                    }
+                                    sender.sendMessage("§eAll the players §aare in §eAdventure§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set all the players gamemode to Adventure");
+                                } else {
+                                    target.setGameMode(GameMode.ADVENTURE);
+                                    target.sendMessage("§aGamemode set to §eAdventure§a!");
+                                    sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eAdventure§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set "
+                                            + target.getPlayer().getName() + " gamemode to Adventure");
+                                }
                             } else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
                                     || args[0].equalsIgnoreCase("sp")) {
-                                target.setGameMode(GameMode.SPECTATOR);
-                                target.sendMessage("§aGamemode set to §eSpectator§a!");
-                                sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSpectator§a!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " set "
-                                        + target.getPlayer().getName() + " gamemode to Spectator");
+                                if (args[1].equalsIgnoreCase("@a")) {
+                                    for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                        if (target2 != null) {
+                                            target2.setGameMode(GameMode.SPECTATOR);
+                                            target2.sendMessage("§aGamemode set to §eSpectator§a!");
+                                        }
+                                    }
+                                    sender.sendMessage("§eAll the players §aare in §eSpectator§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set all the players gamemode to Spectator");
+                                } else {
+                                    target.setGameMode(GameMode.SPECTATOR);
+                                    target.sendMessage("§aGamemode set to §eSpectator§a!");
+                                    sender.sendMessage("§e" + target.getPlayer().getName() + "§a is in §eSpectator§a!");
+                                    plugin.getLogger().info(player.getPlayer().getName() + " set "
+                                            + target.getPlayer().getName() + " gamemode to Spectator");
+                                }
                             } else {
                                 return false;
                             }
-                            return true;
                         } else
                             sender.sendMessage("§cPlayer not found");
                         return true;
                     }
-
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
@@ -95,35 +137,78 @@ public class Gamemode implements CommandExecutor {
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 2) {
                     Player target = Bukkit.getServer().getPlayerExact(args[1]);
-                    if (target != null) {
+                    if (target != null || args[1].equalsIgnoreCase("@a")) {
                         if (args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative")
                                 || args[0].equalsIgnoreCase("c")) {
-                            target.setGameMode(GameMode.CREATIVE);
-                            target.sendMessage("§aGamemode set to §eCreative§a!");
-                            sender.sendMessage("You put " + target.getPlayer().getName() + " in Creative!");
-                            plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Creative");
+                            if (args[1].equalsIgnoreCase("@a")) {
+                                for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                    if (target2 != null) {
+                                        target2.setGameMode(GameMode.CREATIVE);
+                                        target2.sendMessage("§aGamemode set to §eCreative§a!");
+                                    }
+                                }
+                                sender.sendMessage("You put all the players in Creative!");
+                                plugin.getLogger().info("Console set all the players gamemode to Creative");
+                            } else {
+                                target.setGameMode(GameMode.CREATIVE);
+                                target.sendMessage("§aGamemode set to §eCreative§a!");
+                                sender.sendMessage("You put " + target.getPlayer().getName() + " in Creative!");
+                                plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Creative");
+                            }
                         } else if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")
                                 || args[0].equalsIgnoreCase("s")) {
-                            target.setGameMode(GameMode.SURVIVAL);
-                            target.sendMessage("§aGamemode set to §eSurvival§a!");
-                            sender.sendMessage("You put " + target.getPlayer().getName() + " in Survival!");
-                            plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Survival");
+                            if (args[1].equalsIgnoreCase("@a")) {
+                                for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                    if (target2 != null) {
+                                        target2.setGameMode(GameMode.SURVIVAL);
+                                        target2.sendMessage("§aGamemode set to Survival§a!");
+                                    }
+                                }
+                                sender.sendMessage("You put all the players in Survival!");
+                                plugin.getLogger().info("Console set all the players gamemode to Survival");
+                            } else {
+                                target.setGameMode(GameMode.SURVIVAL);
+                                target.sendMessage("§aGamemode set to §eSurvival§a!");
+                                sender.sendMessage("You put " + target.getPlayer().getName() + " in Survival!");
+                                plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Survival");
+                            }
                         } else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")
                                 || args[0].equalsIgnoreCase("a")) {
-                            target.setGameMode(GameMode.ADVENTURE);
-                            target.sendMessage("§aGamemode set to §eAdventure§a!");
-                            sender.sendMessage("You put " + target.getPlayer().getName() + " in Adventure!");
-                            plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Adventure");
+                            if (args[1].equalsIgnoreCase("@a")) {
+                                for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                    if (target2 != null) {
+                                        target2.setGameMode(GameMode.ADVENTURE);
+                                        target2.sendMessage("§aGamemode set to §eAdventure§a!");
+                                    }
+                                }
+                                sender.sendMessage("You put all the players in Adventure!");
+                                plugin.getLogger().info("Console set all the players gamemode to Adventure");
+                            } else {
+                                target.setGameMode(GameMode.ADVENTURE);
+                                target.sendMessage("§aGamemode set to §eAdventure§a!");
+                                sender.sendMessage("You put " + target.getPlayer().getName() + " in Adventure!");
+                                plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Adventure");
+                            }
                         } else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")
                                 || args[0].equalsIgnoreCase("sp")) {
-                            target.setGameMode(GameMode.SPECTATOR);
-                            target.sendMessage("§aGamemode set to §eSpectator§a!");
-                            sender.sendMessage("You put " + target.getPlayer().getName() + " in Spectator!");
-                            plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Spectator");
+                            if (args[1].equalsIgnoreCase("@a")) {
+                                for (Player target2 : plugin.getServer().getOnlinePlayers()) {
+                                    if (target2 != null) {
+                                        target2.setGameMode(GameMode.SPECTATOR);
+                                        target2.sendMessage("§aGamemode set to §eSpectator§a!");
+                                    }
+                                }
+                                sender.sendMessage("You put all the players in Spectator!");
+                                plugin.getLogger().info("Console set all the players gamemode to Spectator");
+                            } else {
+                                target.setGameMode(GameMode.SPECTATOR);
+                                target.sendMessage("§aGamemode set to §eSpectator§a!");
+                                sender.sendMessage("You put " + target.getPlayer().getName() + " in Spectator!");
+                                plugin.getLogger().info("Console set " + target.getPlayer().getName() + " gamemode to Spectator");
+                            }
                         } else {
                             return false;
                         }
-                        return true;
                     } else
                         sender.sendMessage("Player not found");
                     return true;
@@ -134,5 +219,4 @@ public class Gamemode implements CommandExecutor {
         }
         return false;
     }
-
 }

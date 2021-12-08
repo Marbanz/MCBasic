@@ -33,7 +33,6 @@ public class Delwarp implements CommandExecutor {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
                 }
-
             }
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 1) {
@@ -52,5 +51,4 @@ public class Delwarp implements CommandExecutor {
         }
         return false;
     }
-
 }

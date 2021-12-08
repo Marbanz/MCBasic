@@ -23,7 +23,6 @@ public class Invsee implements CommandExecutor {
                             p.openInventory(target.getInventory());
                             p.sendMessage("§aOpened inventory!");
                             plugin.getLogger().info(p.getPlayer().getName() + " opened " + target.getPlayer().getName() + " inventory!");
-                            return true;
                         } else
                             p.sendMessage("§cPlayer not found");
                         return true;
@@ -34,15 +33,12 @@ public class Invsee implements CommandExecutor {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                     return true;
                 }
-
             }
             if (sender instanceof ConsoleCommandSender) {
                 sender.sendMessage("You can't do this command from the console!");
                 return true;
             }
         }
-
         return false;
-
     }
 }
