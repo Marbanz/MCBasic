@@ -6,7 +6,7 @@
 
     <groupId>me.marbanz</groupId>
     <artifactId>MCBasic</artifactId>
-    <version>1.10</version>
+    <version>1.10.1</version>
     <packaging>jar</packaging>
 
     <name>MCBasic</name>

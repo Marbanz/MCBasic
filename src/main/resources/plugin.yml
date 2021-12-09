@@ -1,5 +1,5 @@
 name: MCBasic
-version: 1.10
+version: 1.10.1
 main: me.marbanz.mcbasic.Main
 authors: [ Marbanz ]
 api-version: 1.17
