@@ -172,3 +172,27 @@ commands:
     aliases: [cord]
     permission: mcbasic.coordinates
     usage: "Use: /coordinates [add|remove|list|location]"
+
+  mutelist:
+    description: see the list of muted players
+    aliases: [ ]
+    permission: mcbasic.mutelist
+    usage: "Use: /mutelist"
+
+  tpa:
+    description: teleport a player to another player
+    aliases: [ ]
+    permission: mcbasic.tpa
+    usage: "Use: /tpa <player>"
+
+  tpaccept:
+    description: accept a teleport request
+    aliases: [tpac]
+    permission: mcbasic.tpaccept
+    usage: "Use: /tpaccept <player>"
+
+  tpdeny:
+    description: deny a teleport request
+    aliases: [tpad]
+    permission: mcbasic.tpdeny
+    usage: "Use: /tpdeny <player>"

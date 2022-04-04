@@ -1,13 +1,12 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Tphere implements CommandExecutor {
 
@@ -19,19 +18,19 @@ public class Tphere implements CommandExecutor {
                 if (sender.hasPermission("mcbasic.tphere")) {
                     if (args.length == 1) {
                         if (args[0].equalsIgnoreCase("@a")) {
-                            for (Player target : plugin.getServer().getOnlinePlayers()) {
+                            for (Player target : MCBasic.getPlugin().getServer().getOnlinePlayers()) {
                                 if (target != null)
                                     target.teleport(p);
                             }
                             p.sendMessage("§aYou teleported here §eall the players§a!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " teleported here all the players");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " teleported here all the players");
                         } else {
                             Player target = Bukkit.getServer().getPlayerExact(args[0]);
                             Player player = (Player) sender;
                             if (target != null) {
                                 target.teleport(p);
                                 p.sendMessage("§aYou teleported here §e" + target.getPlayer().getName() + "§a!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " teleported here "
+                                MCBasic.getPlugin().getLogger().info(player.getPlayer().getName() + " teleported here "
                                         + target.getPlayer().getName());
                             } else
                                 sender.sendMessage("§cPlayer not found");

@@ -1,13 +1,12 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Enderchestsee implements CommandExecutor {
 
@@ -22,7 +21,7 @@ public class Enderchestsee implements CommandExecutor {
                         if (target != null) {
                             p.openInventory(target.getEnderChest());
                             p.sendMessage("§aOpened enderchest!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " opened " + target.getPlayer().getName() + " enderchest!");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " opened " + target.getPlayer().getName() + " enderchest!");
                         } else
                             p.sendMessage("§cPlayer not found");
                         return true;

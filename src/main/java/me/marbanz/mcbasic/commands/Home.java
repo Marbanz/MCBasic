@@ -1,6 +1,7 @@
 package me.marbanz.mcbasic.commands;
 
-import me.marbanz.mcbasic.Main;
+import me.marbanz.mcbasic.MCBasic;
+import me.marbanz.mcbasic.utils.Resources;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -10,8 +11,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
-
 public class Home implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -19,16 +18,16 @@ public class Home implements CommandExecutor {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.home")) {
-                    if (Main.homeConfiguration.getConfigurationSection(p.getPlayer().getName() + ".home") == null) {
+                    if (Resources.homeConfiguration.getConfigurationSection(p.getPlayer().getName() + ".home") == null) {
                         p.sendMessage("§cThe home has not yet been set!");
                     } else {
-                        World w = Bukkit.getServer().getWorld(Main.homeConfiguration.getString(p.getPlayer().getName() + ".home.world"));
-                        double x = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.x");
-                        double y = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.y");
-                        double z = Main.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.z");
+                        World w = Bukkit.getServer().getWorld(Resources.homeConfiguration.getString(p.getPlayer().getName() + ".home.world"));
+                        double x = Resources.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.x");
+                        double y = Resources.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.y");
+                        double z = Resources.homeConfiguration.getDouble(p.getPlayer().getName() + ".home.z");
                         p.teleport(new Location(w, x, y, z));
                         p.sendMessage("§aTeleported to home!");
-                        plugin.getLogger().info(p.getPlayer().getName() + " teleported to home");
+                        MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " teleported to home");
                     }
                     return true;
                 } else {

@@ -1,5 +1,6 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,10 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
-
 public class Boom implements CommandExecutor {
-
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
         if (cmd.getName().equalsIgnoreCase("boom")) {
@@ -22,7 +20,7 @@ public class Boom implements CommandExecutor {
                         if (target != null) {
                             player.sendMessage("§a/Boomed §e" + target.getPlayer().getName() + "§a!");
                             target.sendMessage("§aBoom!");
-                            plugin.getLogger().info(player.getPlayer().getName() + " /Boomed "
+                            MCBasic.getPlugin().getLogger().info(player.getPlayer().getName() + " /Boomed "
                                     + target.getPlayer().getName());
                             target.getWorld().createExplosion(target.getLocation(), 1, false, false);
                         } else
@@ -43,7 +41,7 @@ public class Boom implements CommandExecutor {
                     if (target != null) {
                         sender.sendMessage("/Boomed " + target.getPlayer().getName() + "!");
                         target.sendMessage("§aBoom!");
-                        plugin.getLogger().info("Console /Boomed " + target.getPlayer().getName());
+                        MCBasic.getPlugin().getLogger().info("Console /Boomed " + target.getPlayer().getName());
                         target.getWorld().createExplosion(target.getLocation(), 1, false, false);
                     } else
                         sender.sendMessage("Player not found");

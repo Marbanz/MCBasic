@@ -1,5 +1,6 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Invsee implements CommandExecutor {
 
@@ -22,7 +22,7 @@ public class Invsee implements CommandExecutor {
                         if (target != null) {
                             p.openInventory(target.getInventory());
                             p.sendMessage("§aOpened inventory!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " opened " + target.getPlayer().getName() + " inventory!");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " opened " + target.getPlayer().getName() + " inventory!");
                         } else
                             p.sendMessage("§cPlayer not found");
                         return true;

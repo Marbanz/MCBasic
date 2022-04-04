@@ -1,15 +1,14 @@
 package me.marbanz.mcbasic.commands;
 
-import java.io.IOException;
-
-import me.marbanz.mcbasic.Main;
+import me.marbanz.mcbasic.MCBasic;
+import me.marbanz.mcbasic.utils.Resources;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
+import java.io.IOException;
 
 public class Setspawn implements CommandExecutor {
 
@@ -18,17 +17,17 @@ public class Setspawn implements CommandExecutor {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.setspawn")) {
-                    Main.spawnConfiguration.set("spawn.world", p.getLocation().getWorld().getName());
-                    Main.spawnConfiguration.set("spawn.x", p.getLocation().getX());
-                    Main.spawnConfiguration.set("spawn.y", p.getLocation().getY());
-                    Main.spawnConfiguration.set("spawn.z", p.getLocation().getZ());
+                    Resources.spawnConfiguration.set("spawn.world", p.getLocation().getWorld().getName());
+                    Resources.spawnConfiguration.set("spawn.x", p.getLocation().getX());
+                    Resources.spawnConfiguration.set("spawn.y", p.getLocation().getY());
+                    Resources.spawnConfiguration.set("spawn.z", p.getLocation().getZ());
                     try {
-                        Main.spawnConfiguration.save(Main.spawnFile);
+                        Resources.spawnConfiguration.save(Resources.spawnFile);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     p.sendMessage("§aSpawn set!");
-                    plugin.getLogger().info(p.getPlayer().getName() + " set the spawn to X: " + p.getLocation().getX() + " Y: " + p.getLocation().getY() + " Z: " + p.getLocation().getZ());
+                    MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " set the spawn to X: " + p.getLocation().getX() + " Y: " + p.getLocation().getY() + " Z: " + p.getLocation().getZ());
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                 }

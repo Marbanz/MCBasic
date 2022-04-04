@@ -1,6 +1,7 @@
 package me.marbanz.mcbasic.commands;
 
-import me.marbanz.mcbasic.Main;
+import me.marbanz.mcbasic.MCBasic;
+import me.marbanz.mcbasic.utils.Resources;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -10,8 +11,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
-
 public class Spawn implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -19,17 +18,17 @@ public class Spawn implements CommandExecutor {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.spawn")) {
-                    if (Main.spawnConfiguration.getConfigurationSection("spawn") == null) {
+                    if (Resources.spawnConfiguration.getConfigurationSection("spawn") == null) {
                         p.sendMessage("§cThe spawn has not yet been set!");
                         return true;
                     } else {
-                        World w = Bukkit.getServer().getWorld(Main.spawnConfiguration.getString("spawn.world"));
-                        double x = Main.spawnConfiguration.getDouble("spawn.x");
-                        double y = Main.spawnConfiguration.getDouble("spawn.y");
-                        double z = Main.spawnConfiguration.getDouble("spawn.z");
+                        World w = Bukkit.getServer().getWorld(Resources.spawnConfiguration.getString("spawn.world"));
+                        double x = Resources.spawnConfiguration.getDouble("spawn.x");
+                        double y = Resources.spawnConfiguration.getDouble("spawn.y");
+                        double z = Resources.spawnConfiguration.getDouble("spawn.z");
                         p.teleport(new Location(w, x, y, z));
                         p.sendMessage("§aTeleported to spawn!");
-                        plugin.getLogger().info(p.getPlayer().getName() + " teleported to spawn");
+                        MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " teleported to spawn");
                         return true;
                     }
                 } else {

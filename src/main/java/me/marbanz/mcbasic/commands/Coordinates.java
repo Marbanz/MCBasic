@@ -1,13 +1,12 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import me.marbanz.mcbasic.utils.Coordinatesmanager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Coordinates implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -28,7 +27,7 @@ public class Coordinates implements CommandExecutor {
                                     } else {
                                         Coordinatesmanager.addCoordinates(args[1], p.getLocation());
                                         p.sendMessage("§aStored coordinates §e" + args[1] + "§a!");
-                                        plugin.getLogger().info(p.getPlayer().getName() + " stored coordinates " + args[1]);
+                                        MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " stored coordinates " + args[1]);
                                     }
                                 } else {
                                     p.sendMessage("§cYou need to write the name of the coordinates");
@@ -40,7 +39,7 @@ public class Coordinates implements CommandExecutor {
                                     if (Coordinatesmanager.exists(args[1])) {
                                         Coordinatesmanager.removeCoordinates(args[1]);
                                         p.sendMessage("§aCoordinates deleted!");
-                                        plugin.getLogger().info(p.getPlayer().getName() + " deleted the coordinates " + args[1]);
+                                        MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " deleted the coordinates " + args[1]);
                                     } else {
                                         p.sendMessage("§cThe coordinates §e" + args[1] + "§c does not exist!");
                                     }
@@ -83,7 +82,7 @@ public class Coordinates implements CommandExecutor {
                                 if (Coordinatesmanager.exists(args[1])) {
                                     Coordinatesmanager.removeCoordinates(args[1]);
                                     sender.sendMessage("Coordinates deleted!");
-                                    plugin.getLogger().info("Console deleted the coordinates " + args[1]);
+                                    MCBasic.getPlugin().getLogger().info("Console deleted the coordinates " + args[1]);
                                 } else {
                                     sender.sendMessage("The coordinates " + args[1] + " does not exist!");
                                 }

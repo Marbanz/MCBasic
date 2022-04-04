@@ -1,13 +1,12 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class God implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -19,11 +18,11 @@ public class God implements CommandExecutor {
                         if (p.isInvulnerable()) {
                             p.setInvulnerable(false);
                             p.sendMessage("§aGod mode disabled");
-                            plugin.getLogger().info(p.getPlayer().getName() + " disabled god mode for himself");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " disabled god mode for himself");
                         } else {
                             p.setInvulnerable(true);
                             p.sendMessage("§aGod mode enabled");
-                            plugin.getLogger().info(p.getPlayer().getName() + " enabled god mode for himself");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " enabled god mode for himself");
                         }
                         return true;
                     } else if (args.length == 1) {
@@ -33,12 +32,12 @@ public class God implements CommandExecutor {
                                 target.setInvulnerable(false);
                                 p.sendMessage("§aGod mode disabled for §e" + target.getPlayer().getName());
                                 target.sendMessage("§aGod mode disabled");
-                                plugin.getLogger().info(p.getPlayer().getName() + " disabled god mode for " + target.getPlayer().getName());
+                                MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " disabled god mode for " + target.getPlayer().getName());
                             } else {
                                 target.setInvulnerable(true);
                                 p.sendMessage("§aGod mode enabled for §e" + target.getPlayer().getName());
                                 target.sendMessage("§aGod mode enabled");
-                                plugin.getLogger().info(p.getPlayer().getName() + " enabled god mode for " + target.getPlayer().getName());
+                                MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " enabled god mode for " + target.getPlayer().getName());
                             }
                         } else
                             sender.sendMessage("§cPlayer not found");
@@ -56,12 +55,12 @@ public class God implements CommandExecutor {
                             target.setInvulnerable(false);
                             sender.sendMessage("God mode disabled for " + target.getPlayer().getName());
                             target.sendMessage("§aGod mode disabled");
-                            plugin.getLogger().info("Console disabled god mode for " + target.getPlayer().getName());
+                            MCBasic.getPlugin().getLogger().info("Console disabled god mode for " + target.getPlayer().getName());
                         } else {
                             target.setInvulnerable(true);
                             sender.sendMessage("God mode enabled for " + target.getPlayer().getName());
                             target.sendMessage("§aGod mode enabled");
-                            plugin.getLogger().info("Console enabled god mode for " + target.getPlayer().getName());
+                            MCBasic.getPlugin().getLogger().info("Console enabled god mode for " + target.getPlayer().getName());
                         }
                     } else
                         sender.sendMessage("Player not found");

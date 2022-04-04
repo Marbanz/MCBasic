@@ -1,5 +1,6 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Fly implements CommandExecutor {
 
@@ -21,11 +21,11 @@ public class Fly implements CommandExecutor {
                         if (p.getAllowFlight()) {
                             p.setAllowFlight(false);
                             sender.sendMessage("§aFly disabled!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " has disabled fly");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " has disabled fly");
                         } else {
                             p.setAllowFlight(true);
                             sender.sendMessage("§aFly enabled!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " has enabled fly");
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " has enabled fly");
                         }
                         return true;
                     } else if (args.length == 1) {
@@ -36,13 +36,13 @@ public class Fly implements CommandExecutor {
                                 target.setAllowFlight(false);
                                 target.sendMessage("§aFly disabled!");
                                 sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can't fly!");
-                                plugin.getLogger().info(player.getPlayer().getName()
+                                MCBasic.getPlugin().getLogger().info(player.getPlayer().getName()
                                         + " has disabled fly for " + target.getPlayer().getName());
                             } else {
                                 target.setAllowFlight(true);
                                 target.sendMessage("§aFly enabled");
                                 sender.sendMessage("§aNow §e" + target.getPlayer().getName() + "§a can fly!");
-                                plugin.getLogger().info(player.getPlayer().getName() + " has enabled fly for "
+                                MCBasic.getPlugin().getLogger().info(player.getPlayer().getName() + " has enabled fly for "
                                         + target.getPlayer().getName());
                             }
                         } else {
@@ -63,12 +63,12 @@ public class Fly implements CommandExecutor {
                             target.setAllowFlight(false);
                             target.sendMessage("§aFly disabled!");
                             sender.sendMessage("Now " + target.getPlayer().getName() + " can't fly!");
-                            plugin.getLogger().info("Console has disabled fly for " + target.getPlayer().getName());
+                            MCBasic.getPlugin().getLogger().info("Console has disabled fly for " + target.getPlayer().getName());
                         } else {
                             target.setAllowFlight(true);
                             target.sendMessage("§aFly enabled!");
                             sender.sendMessage("Now " + target.getPlayer().getName() + " can fly!");
-                            plugin.getLogger().info("Console has enabled fly for " + target.getPlayer().getName());
+                            MCBasic.getPlugin().getLogger().info("Console has enabled fly for " + target.getPlayer().getName());
                         }
                     } else {
                         sender.sendMessage("Player not found");

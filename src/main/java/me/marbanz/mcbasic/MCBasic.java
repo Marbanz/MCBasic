@@ -2,45 +2,29 @@ package me.marbanz.mcbasic;
 
 import me.marbanz.mcbasic.commands.*;
 import me.marbanz.mcbasic.events.*;
-import me.marbanz.mcbasic.utils.*;
-import org.bukkit.configuration.file.FileConfiguration;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Scanner;
-
-import org.bukkit.configuration.file.YamlConfiguration;
+import me.marbanz.mcbasic.utils.Metrics;
+import me.marbanz.mcbasic.utils.Resources;
+import me.marbanz.mcbasic.utils.UpdateChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Main extends JavaPlugin {
+public final class MCBasic extends JavaPlugin {
+    private static MCBasic plugin;
 
-    public static Main plugin;
-    public static File warpFile = new File("./plugins/MCBasic", "warp.yml");
-    public static FileConfiguration warpConfiguration = YamlConfiguration.loadConfiguration(warpFile);
-    public static File spawnFile = new File("./plugins/MCBasic", "spawn.yml");
-    public static FileConfiguration spawnConfiguration = YamlConfiguration.loadConfiguration(spawnFile);
-    public static File homeFile = new File("./plugins/MCBasic", "home.yml");
-    public static FileConfiguration homeConfiguration = YamlConfiguration.loadConfiguration(homeFile);
-    public static File muteFile = new File("./plugins/MCBasic", "mute.yml");
-    public static FileConfiguration muteConfiguration = YamlConfiguration.loadConfiguration(muteFile);
-    public static File coordinatesFile = new File("./plugins/MCBasic", "coordinates.yml");
-    public static FileConfiguration coordinatesConfiguration = YamlConfiguration.loadConfiguration(coordinatesFile);
-
+    @Override
     public void onEnable() {
         plugin = this;
+        Metrics metrics = new Metrics(this, 11266);
 
-        getLogger().info("Plugin is enabled");
+        getLogger().info("Plugin enabled");
         getLogger().info("Plugin made by Marbanz");
-
-        int pluginId = 11266;
-        Metrics metrics = new Metrics(this, pluginId);
+        UpdateChecker.MainCheckUpdates();
 
         getServer().getPluginManager().registerEvents(new Join(), this);
         getServer().getPluginManager().registerEvents(new Motd(), this);
         getServer().getPluginManager().registerEvents(new Quit(), this);
         getServer().getPluginManager().registerEvents(new Muted(), this);
         getServer().getPluginManager().registerEvents(new CheckUpdate(), this);
+
         getCommand("fly").setExecutor(new Fly());
         getCommand("gamemode").setExecutor(new Gamemode());
         getCommand("heal").setExecutor(new Heal());
@@ -70,31 +54,22 @@ public final class Main extends JavaPlugin {
         getCommand("enderchestsee").setExecutor(new Enderchestsee());
         getCommand("god").setExecutor(new God());
         getCommand("coordinates").setExecutor(new Coordinates());
+        getCommand("mutelist").setExecutor(new Mutelist());
+        getCommand("tpa").setExecutor(new Tpa());
+        getCommand("tpaccept").setExecutor(new Tpaccept());
+        getCommand("tpdeny").setExecutor(new Tpdeny());
+
+        Resources.loadmutedPlayers();
+
         saveDefaultConfig();
-
-        if (Boolean.parseBoolean(Main.getInstance().getConfig().getString("settings.update_checker"))) {
-            String v = "";
-            try {
-                Scanner s = new Scanner(new URL("https://api.spigotmc.org/legacy/update.php?resource=85523").openStream());
-                if (s.hasNext()) {
-                    v = s.next();
-                }
-            } catch (IOException e) {
-                getLogger().info("Cannot look for updates: " + e.getMessage());
-            }
-            if (getDescription().getVersion().equalsIgnoreCase(v)) {
-                getLogger().info("Plugin is up to date");
-            } else {
-                getLogger().warning("Plugin needs to be updated. Download: https://www.spigotmc.org/resources/mcbasic.85523/");
-            }
-        }
     }
 
+    @Override
     public void onDisable() {
-        getLogger().info("Plugin is disabled");
+        getLogger().info("Plugin disabled");
     }
 
-    public static Main getInstance() {
+    public static MCBasic getPlugin() {
         return plugin;
     }
 }

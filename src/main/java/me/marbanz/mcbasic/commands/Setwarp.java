@@ -1,13 +1,12 @@
 package me.marbanz.mcbasic.commands;
 
+import me.marbanz.mcbasic.MCBasic;
 import me.marbanz.mcbasic.utils.Warpmanager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import static me.marbanz.mcbasic.Main.plugin;
 
 public class Setwarp implements CommandExecutor {
 
@@ -23,7 +22,7 @@ public class Setwarp implements CommandExecutor {
                         } else {
                             Warpmanager.addWarp(args[0], p.getLocation());
                             p.sendMessage("§aCreated warp §e" + args[0] + "§a!");
-                            plugin.getLogger().info(p.getPlayer().getName() + " created warp " + args[0]);
+                            MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " created warp " + args[0]);
                         }
                         return true;
                     } else {
