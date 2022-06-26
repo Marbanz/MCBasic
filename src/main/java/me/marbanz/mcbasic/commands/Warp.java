@@ -1,7 +1,7 @@
 package me.marbanz.mcbasic.commands;
 
 import me.marbanz.mcbasic.MCBasic;
-import me.marbanz.mcbasic.utils.Warpmanager;
+import me.marbanz.mcbasic.utils.WarpManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,8 +17,8 @@ public class Warp implements CommandExecutor {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.warp")) {
                     if (args.length == 1) {
-                        if (Warpmanager.exists(args[0])) {
-                            p.teleport(Warpmanager.getWarp(args[0]));
+                        if (WarpManager.exists(args[0])) {
+                            p.teleport(WarpManager.getWarp(args[0]));
                             p.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
                             MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " teleported to warp " + args[0]);
                         } else {

@@ -22,6 +22,7 @@ public class Resources {
     public static FileConfiguration coordinatesConfiguration = YamlConfiguration.loadConfiguration(coordinatesFile);
 
     public static ArrayList<Player> mutedPlayers = new ArrayList<>();
+    public static Map<Player, Player> tpaRequests = new HashMap<>();
 
     public static boolean savemutedPlayers() {
         try {
@@ -40,10 +41,9 @@ public class Resources {
             }
             return true;
         } catch (Exception e) {
+            mutedPlayers = new ArrayList<>();
             return false;
         }
     }
-
-    public static Map<Player, Player> tpaRequests = new HashMap<>();
 
 }

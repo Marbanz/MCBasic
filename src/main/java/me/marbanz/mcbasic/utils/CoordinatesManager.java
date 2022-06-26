@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coordinatesmanager {
+public class CoordinatesManager {
 
     public static void addCoordinates(String coordinatesname, Location location) {
         List<String> coordinates;

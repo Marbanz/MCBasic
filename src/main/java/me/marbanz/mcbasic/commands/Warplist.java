@@ -1,6 +1,6 @@
 package me.marbanz.mcbasic.commands;
 
-import me.marbanz.mcbasic.utils.Warpmanager;
+import me.marbanz.mcbasic.utils.WarpManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,14 +16,14 @@ public class Warplist implements CommandExecutor {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.warplist")) {
-                    Warpmanager.shouldWarpList(p);
+                    WarpManager.shouldWarpList(p);
                 } else {
                     sender.sendMessage("§cYou don't have permissions to execute this command");
                 }
                 return true;
             }
             if (sender instanceof ConsoleCommandSender) {
-                Warpmanager.shouldWarpListConsole(sender);
+                WarpManager.shouldWarpListConsole(sender);
                 return true;
             }
         }

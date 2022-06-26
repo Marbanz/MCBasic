@@ -18,7 +18,7 @@ public class Mutelist implements CommandExecutor {
                     } else {
                         player.sendMessage("§aMute List:");
                         for (Player muted : Resources.mutedPlayers) {
-                            player.sendMessage("§a- " + muted.getName());
+                            player.sendMessage("§e- " + muted.getName());
                         }
                     }
                 } else {

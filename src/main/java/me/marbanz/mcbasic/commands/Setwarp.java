@@ -1,7 +1,7 @@
 package me.marbanz.mcbasic.commands;
 
 import me.marbanz.mcbasic.MCBasic;
-import me.marbanz.mcbasic.utils.Warpmanager;
+import me.marbanz.mcbasic.utils.WarpManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,10 +17,10 @@ public class Setwarp implements CommandExecutor {
                 Player p = (Player) sender;
                 if (sender.hasPermission("mcbasic.setwarp")) {
                     if (args.length == 1) {
-                        if (Warpmanager.exists(args[0])) {
+                        if (WarpManager.exists(args[0])) {
                             p.sendMessage("§cThis warp already exist");
                         } else {
-                            Warpmanager.addWarp(args[0], p.getLocation());
+                            WarpManager.addWarp(args[0], p.getLocation());
                             p.sendMessage("§aCreated warp §e" + args[0] + "§a!");
                             MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " created warp " + args[0]);
                         }

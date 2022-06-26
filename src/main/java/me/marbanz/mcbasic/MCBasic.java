@@ -10,6 +10,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class MCBasic extends JavaPlugin {
     private static MCBasic plugin;
 
+    public static MCBasic getPlugin() {
+        return plugin;
+    }
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -67,9 +71,5 @@ public final class MCBasic extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("Plugin disabled");
-    }
-
-    public static MCBasic getPlugin() {
-        return plugin;
     }
 }

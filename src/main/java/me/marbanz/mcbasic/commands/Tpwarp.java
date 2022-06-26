@@ -1,7 +1,7 @@
 package me.marbanz.mcbasic.commands;
 
 import me.marbanz.mcbasic.MCBasic;
-import me.marbanz.mcbasic.utils.Warpmanager;
+import me.marbanz.mcbasic.utils.WarpManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,10 +17,10 @@ public class Tpwarp implements CommandExecutor {
                 if (sender.hasPermission("mcbasic.tpwarp")) {
                     if (args.length == 2) {
                         if (args[1].equalsIgnoreCase("@a")) {
-                            if (Warpmanager.exists(args[0])) {
+                            if (WarpManager.exists(args[0])) {
                                 for (Player target : MCBasic.getPlugin().getServer().getOnlinePlayers()) {
                                     if (target != null) {
-                                        target.teleport(Warpmanager.getWarp(args[0]));
+                                        target.teleport(WarpManager.getWarp(args[0]));
                                         target.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
                                     }
                                 }
@@ -33,8 +33,8 @@ public class Tpwarp implements CommandExecutor {
                         } else {
                             Player target = Bukkit.getServer().getPlayerExact(args[1]);
                             if (target != null) {
-                                if (Warpmanager.exists(args[0])) {
-                                    target.teleport(Warpmanager.getWarp(args[0]));
+                                if (WarpManager.exists(args[0])) {
+                                    target.teleport(WarpManager.getWarp(args[0]));
                                     target.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
                                     sender.sendMessage("§aTeleported §e" + target.getPlayer().getName() + "§a to the warp §e" + args[0] + "§a!");
                                     MCBasic.getPlugin().getLogger().info(p.getPlayer().getName() + " teleported " + target.getPlayer().getName() + " to warp " + args[0]);
@@ -56,10 +56,10 @@ public class Tpwarp implements CommandExecutor {
             if (sender instanceof ConsoleCommandSender) {
                 if (args.length == 2) {
                     if (args[1].equalsIgnoreCase("@a")) {
-                        if (Warpmanager.exists(args[0])) {
+                        if (WarpManager.exists(args[0])) {
                             for (Player target : MCBasic.getPlugin().getServer().getOnlinePlayers()) {
                                 if (target != null) {
-                                    target.teleport(Warpmanager.getWarp(args[0]));
+                                    target.teleport(WarpManager.getWarp(args[0]));
                                     target.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
                                 }
                             }
@@ -72,8 +72,8 @@ public class Tpwarp implements CommandExecutor {
                     } else {
                         Player target = Bukkit.getServer().getPlayerExact(args[1]);
                         if (target != null) {
-                            if (Warpmanager.exists(args[0])) {
-                                target.teleport(Warpmanager.getWarp(args[0]));
+                            if (WarpManager.exists(args[0])) {
+                                target.teleport(WarpManager.getWarp(args[0]));
                                 target.sendMessage("§aTeleported to warp §e" + args[0] + "§a!");
                                 sender.sendMessage("Teleported " + target.getPlayer().getName() + " to warp " + args[0] + "!");
                                 MCBasic.getPlugin().getLogger().info("Console teleported " + target.getPlayer().getName() + " to warp " + args[0]);

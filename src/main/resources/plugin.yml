@@ -2,7 +2,7 @@ name: MCBasic
 version: '${project.version}'
 main: me.marbanz.mcbasic.MCBasic
 authors: [ Marbanz ]
-api-version: 1.17
+api-version: 1.19
 description: A simple plugin for Minecraft
 website: https://www.spigotmc.org/resources/mcbasic.85523/
 commands:

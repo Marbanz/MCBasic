@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Warpmanager {
+public class WarpManager {
 
     public static void addWarp(String warpname, Location location) {
         List<String> warps;
