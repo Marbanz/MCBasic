@@ -23,11 +23,6 @@ MCBasic currently supports CraftBukkit, Spigot, and Paper.
 
 Other server implementations may work, but we don't recommend them as they may cause compatibility issues.
 
-# Support
-
-If you have some problems with the plugin or you want to report a bug join my discord server:
-https://discord.gg/Jvm7PExuxu
-
 # Metrics collection
 
 MCBasic collects anonymous server statistics through bStats.
